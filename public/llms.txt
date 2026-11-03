@@ -1,0 +1,25 @@
+# Laxitech
+
+> Custom software, cloud architecture, infrastructure and automation.
+> Website: https://laxitech.com
+> Contact: contact@laxitech.com
+
+## Engineering services
+- https://laxitech.com/services/software-engineering — Web, mobile, desktop and backend engineering.
+- https://laxitech.com/services/cloud-architecture — Cloud architecture and migration.
+- https://laxitech.com/services/infrastructure — Servers, networking, virtualization and operations.
+- https://laxitech.com/services/devops-automation — CI/CD, infrastructure as code and delivery automation.
+- https://laxitech.com/services/ai-automation — AI integrations and business workflow automation.
+- https://laxitech.com/services/security-engineering — Application security, access control and backend hardening.
+
+## Products
+- https://laxitech.com/products/vps — Pakistan-hosted NVMe VPS. Starter: PKR 999/month, 1 core, 2 GB RAM, 30 GB NVMe, 1 TB bandwidth. Business: PKR 1,799/month, 2 cores, 4 GB RAM, 60 GB NVMe, 2 TB bandwidth. Pro: PKR 3,299/month, 4 cores, 8 GB RAM, 120 GB NVMe, 4 TB bandwidth.
+- https://laxitech.com/products/gxmail — GXMail business email on a custom domain, secure SMTP/IMAP, SPF/DKIM/DMARC and webmail. Published plans: PKR 250/month or PKR 2,999/year.
+
+## Explore
+- https://laxitech.com/solutions
+- https://laxitech.com/about
+- https://laxitech.com/insights
+- https://laxitech.com/contact
+
+Interactive interface demonstrations on the marketing website are local examples, not live customer accounts.

@@ -1,0 +1,5 @@
+Contact: mailto:chmanan524@gmail.com
+Preferred-Languages: en
+Canonical: https://cynex.abdulmanan.online/.well-known/security.txt
+Policy: https://cynex.abdulmanan.online/privacy-policy
+Expires: 2027-12-31T23:59:59.000Z

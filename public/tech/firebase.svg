@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 226 54" fill="#FFFFFF" aria-label="Firebase">
+  <!-- Official Firebase Flame Glyph -->
+  <path d="M8.4 41.2 13.7 7.8c.2-1.1 1.6-1.4 2.2-.4l5.6 10.5L8.4 41.2Zm31.2 1.1L35 14.2c-.2-1-1.4-1.4-2.1-.6L8 42.3l13.6 7.6c1.5.8 3.3.8 4.8 0l13.2-7.6ZM26.5 20.6l-3.8-7.2c-.5-.9-1.8-.9-2.3 0L9.1 38.9l17.4-18.3Z"/>
+  <!-- Official Firebase Wordmark -->
+  <text x="50" y="38" fill="#FFFFFF" font-family="walsheim, 'GT Walsheim', Geist, -apple-system, sans-serif" font-size="29" font-weight="500" letter-spacing="-0.025em">Firebase</text>
+</svg>

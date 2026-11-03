@@ -1,0 +1,50 @@
+LAXITECH — SOURCE & HANDOVER PACKAGE
+Generated: 2026-11-03
+
+WHAT TO READ FIRST
+1. README.md ................ project overview, quick start, routes, doc index
+2. HANDOVER.md .............. the new-developer guide (setup, rules, editing, verification)
+3. docs/ .................... architecture, design system, content rules, runbook, file map, risks
+4. PROJECT_CONTEXT.md ....... deep history of the design/refinement work and measured results
+
+REQUIREMENTS
+- Node.js >= 20.9 (tested on 22.23)
+- npm 10+ (package-lock.json included; bun.lock is optional)
+
+QUICK START
+  npm install
+  npm run dev          # http://localhost:3000
+  npm run build
+  npm run preview      # http://localhost:3001 (standalone)
+
+VERIFY
+  npm test
+  npm run typecheck
+  npm run lint -- --max-warnings 0
+
+WHAT IS INCLUDED
+- Full application source: app/, components/, data/, lib/, types/, scripts/
+- All static assets: public/ (fonts, GLB model, hero posters, illustrations, media)
+- Configuration: package.json, package-lock.json, bun.lock, next.config.ts, tsconfig.json,
+  postcss.config.mjs, eslint.config.mjs, instrumentation.ts, next-env.d.ts
+- Docs: README.md, HANDOVER.md, docs/*.md, PROJECT_CONTEXT.md,
+  LAXITECH_CUSTOM_INSTRUCTIONS.md, AGENTS.md, LICENSE
+- Reference: .aistudio/legacy-pages/ (pre-refinement page sources) and the original
+  six-phase roadmap under reference/
+
+WHAT IS INTENTIONALLY EXCLUDED
+- node_modules/ and .next/ (reproducible build artifacts)
+- .env* (environment files)
+- .mcp.json, .opencode/ (local MCP integration / credentials)
+- .agents/, .taste-skill/, .playwright-cli/, opencode.json, skills-lock.json,
+  recipes.json (local agent tooling/state)
+- tsconfig.tsbuildinfo (incremental build cache)
+- .git (no repository exists in the source tree)
+
+NOTE ON SOURCE CONTROL
+There is no git history in this package. Before making changes, create a backup or initialize a
+local repository. Never run destructive cleanup commands against the working tree.
+
+NOTE ON SECRETS
+The package excludes all credential-bearing files. Do not add API keys, tokens or .env files to
+the source tree or to future archives.

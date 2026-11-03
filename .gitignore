@@ -1,0 +1,13 @@
+node_modules/
+.next/
+dist/
+build/
+.DS_Store
+*.local
+.env*
+!.env.example
+.aistudio/
+.playwright-cli/
+.taste-skill/
+tsconfig.tsbuildinfo
+.mcp.json

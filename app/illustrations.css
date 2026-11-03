@@ -1,0 +1,115 @@
+:root, [data-theme='dark'] {
+  --art-top: #a9b8d0;
+  --art-front: #53637c;
+  --art-front-shade: #3c4b65;
+  --art-side: #263349;
+  --art-side-shade: #17253c;
+  --art-edge: #8297b8;
+  --art-highlight: #e2edff;
+  --art-screen: #101a2c;
+  --art-paper: #bac9df;
+  --art-line: #99afd0;
+  --art-line-soft: #435a7d;
+  --art-accent: #518dff;
+  --art-accent-side: #244984;
+  --art-accent-front: #3466bf;
+  --art-shadow: #071122;
+  --art-recess: #202e45;
+  --art-vent: #6b80a2;
+}
+
+[data-theme='light'] {
+  --art-top: #f9fcff;
+  --art-front: #d7e2ef;
+  --art-front-shade: #b3c5dd;
+  --art-side: #a4b6d0;
+  --art-side-shade: #839bbd;
+  --art-edge: #a7bdd9;
+  --art-highlight: #ffffff;
+  --art-screen: #e4edf8;
+  --art-paper: #ffffff;
+  --art-line: #819abd;
+  --art-line-soft: #b8cbe1;
+  --art-accent: #417ef1;
+  --art-accent-side: #214986;
+  --art-accent-front: #3264bb;
+  --art-shadow: #466595;
+  --art-recess: #8398b8;
+  --art-vent: #4c658c;
+}
+
+.engineering-art { position: relative; width: 100%; margin: 0; perspective: 1100px; isolation: isolate; }
+.engineering-art-perspective { transform-style: preserve-3d; will-change: transform; }
+.engineering-art-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.engineering-art figcaption { font-size: 14px; line-height: 1.6; text-align: center; color: var(--lx-muted); margin: -22px 18px 0; }
+.engineering-art--compact figcaption { display: none; }
+.site-engineering-visual { min-width: 0; width: 100%; }
+.site-art-legend { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 24px 0 0; padding: 0; list-style: none; }
+.site-art-legend li { display: flex; align-items: center; gap: 16px; color: var(--lx-muted); font-size: 13px; }
+.site-art-legend svg { width: 15px; height: 15px; opacity: .55; flex: none; }
+.iso-block polygon { stroke: var(--art-edge); stroke-width: 1; stroke-linejoin: round; }
+.iso-face-top { fill: var(--art-top-fill); }
+.iso-face-front { fill: var(--art-front-fill); }
+.iso-face-side { fill: var(--art-side-fill); }
+.iso-block--accent .iso-face-top { fill: var(--art-accent); stroke: var(--art-accent); }
+.iso-block--accent .iso-face-front { fill: var(--art-accent-front); stroke: var(--art-accent-front); }
+.iso-block--accent .iso-face-side { fill: var(--art-accent-side); stroke: var(--art-accent-side); }
+.iso-edge-light { fill: none; stroke: var(--art-highlight); stroke-width: 1.25; stroke-linecap: round; opacity: .65; }
+.iso-port-well { fill: var(--art-recess); stroke: var(--art-recess) !important; }
+.iso-port { fill: var(--art-vent); stroke: none !important; }
+.iso-led { fill: var(--art-accent); }
+.iso-chip-mark { fill: none; stroke: var(--art-highlight); stroke-width: 2; opacity: .7; }
+.iso-ground-shadow { fill: var(--art-shadow); opacity: .2; }
+[data-theme='dark'] .iso-ground-shadow { opacity: .5; }
+.iso-screen { fill: var(--art-screen); stroke: none !important; }
+.iso-screen-muted { fill: var(--art-line-soft); stroke: none !important; }
+.iso-ui-paper { fill: var(--art-paper); stroke: none !important; }
+.iso-ui-line { fill: var(--art-line); stroke: none !important; }
+.iso-ui-line-soft { fill: var(--art-line-soft); stroke: none !important; }
+.iso-ui-accent { fill: var(--art-accent); stroke: none !important; }
+.iso-browser-dot { fill: var(--art-side); }
+.iso-cloud-depth { fill: var(--art-side); stroke: var(--art-edge); stroke-width: 1; }
+.iso-cloud-front { fill: var(--art-sheen); stroke: var(--art-edge); stroke-width: 1; }
+.iso-cloud-glint { fill: none; stroke: var(--art-highlight); stroke-width: 2; opacity: .75; }
+.iso-cylinder-body { fill: var(--art-front); stroke: var(--art-edge); stroke-width: 1; }
+.iso-cylinder-rim { fill: none; stroke: var(--art-side); stroke-width: 1.5; }
+.iso-cylinder-top { fill: var(--art-top); stroke: var(--art-edge); stroke-width: 1; }
+.iso-cylinder-inset { fill: none; stroke: var(--art-edge); stroke-width: 1; opacity: .6; }
+.iso-network-path { fill: none; stroke: var(--art-accent); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 6 6; opacity: .6; }
+.iso-paper-line { fill: none; stroke: var(--art-line); stroke-width: 2; stroke-linecap: round; }
+.iso-package-seam { fill: none; stroke: var(--art-highlight); stroke-width: 2; opacity: .7; }
+.iso-check-disc, .iso-at-disc { fill: var(--art-accent-front); stroke: var(--art-accent); stroke-width: 1; }
+.iso-check-stroke { fill: none; stroke: #fff; stroke-width: 2.8; stroke-linecap: round; stroke-linejoin: round; }
+.iso-shield-depth { fill: var(--art-side); stroke: var(--art-edge); stroke-width: 1; }
+.iso-shield-face { fill: var(--art-sheen); stroke: var(--art-highlight); stroke-width: 1.2; }
+.iso-shield-inlay { fill: var(--art-accent-front); stroke: var(--art-accent); stroke-width: 1.2; }
+.iso-lock-loop { fill: none; stroke: var(--art-highlight); stroke-width: 8; stroke-linecap: round; }
+.iso-lock-body { fill: var(--art-paper); }
+.iso-lock-key { fill: var(--art-accent-side); }
+.iso-envelope-left { fill: var(--art-front); stroke: var(--art-edge); stroke-width: 1; }
+.iso-envelope-right { fill: var(--art-side); stroke: var(--art-edge); stroke-width: 1; }
+.iso-envelope-flap { fill: var(--art-sheen); stroke: var(--art-highlight); stroke-width: 1; }
+.iso-envelope-seam { fill: none; stroke: var(--art-edge); stroke-width: 1; }
+.iso-at-symbol { fill: #fff; font-family: var(--font-geist); font-size: 34px; font-weight: 500; }
+.iso-separate-top, .iso-separate-middle, .iso-resource-chip, .iso-software-back, .iso-phone-float, .iso-protected-data, .iso-shield-float, .iso-envelope-float, .iso-letter-float, .iso-inbox-letters, .iso-paper-top { transition: transform .85s cubic-bezier(.16,1,.3,1); }
+.engineering-art:hover .iso-separate-top, .site-service-feature:hover .iso-separate-top { transform: translateY(-20px); }
+.engineering-art:hover .iso-separate-middle, .site-service-feature:hover .iso-separate-middle { transform: translateY(-9px); }
+.engineering-art:hover .iso-resource-chip { transform: translate(0,-32px); }
+.engineering-art:hover .iso-software-back { transform: translate(-13px,-13px); }
+.engineering-art:hover .iso-phone-float { transform: translate(14px,-7px); }
+.engineering-art:hover .iso-shield-float { transform: translate(-8px,-9px); }
+.engineering-art:hover .iso-protected-data { transform: translate(9px,5px); }
+.engineering-art:hover .iso-letter-float { transform: translate(0,-20px); }
+.engineering-art:hover .iso-inbox-letters { transform: translate(6px,-6px); }
+.engineering-art:hover .iso-paper-top { transform: translate(2px,-7px); }
+.iso-cloud-float, .iso-memory-float, .iso-packet-float, .iso-database-float, .iso-processor-float, .iso-check-float { animation: iso-breathe 7s ease-in-out infinite; animation-play-state: paused; }
+.iso-memory-float, .iso-processor-float { animation-delay: -2s; }
+.iso-database-float, .iso-packet-float { animation-delay: -3s; }
+.iso-shipping-package { animation: iso-ship 6s cubic-bezier(.65,0,.35,1) infinite; animation-play-state: paused; }
+.iso-network-path { animation: iso-path 12s linear infinite; animation-play-state: paused; }
+.engineering-art[data-visible='true'] :is(.iso-cloud-float,.iso-memory-float,.iso-packet-float,.iso-database-float,.iso-processor-float,.iso-check-float,.iso-shipping-package,.iso-network-path) { animation-play-state: running; }
+@keyframes iso-breathe { 0%,100% { translate: 0 0; } 50% { translate: 0 -9px; } }
+@keyframes iso-ship { 0%,12% { translate: 0 0; opacity: 1; } 74%,84% { translate: 188px 96px; opacity: 1; } 90% { translate: 198px 101px; opacity: 0; } 91% { translate: 0 0; opacity: 0; } 100% { translate: 0 0; opacity: 1; } }
+@keyframes iso-path { to { stroke-dashoffset: -96; } }
+@media (max-width: 600px) { .engineering-art figcaption { font-size: 13px; margin-top: -5px; } .engineering-art { perspective: 800px; } .site-art-legend, .site-art-legend li { gap: 8px; font-size: 12px; } }
+@media (prefers-reduced-motion: reduce) { .engineering-art * { animation: none !important; transition: none !important; } .engineering-art:hover :is(.iso-separate-top,.iso-separate-middle,.iso-resource-chip,.iso-software-back,.iso-phone-float,.iso-shield-float,.iso-protected-data,.iso-letter-float,.iso-inbox-letters,.iso-paper-top) { transform: none; } }

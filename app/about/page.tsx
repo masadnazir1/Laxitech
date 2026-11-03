@@ -1,0 +1,12 @@
+import { ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
+import { PageIntro, PageClose, Reveal, SectionHeading } from '@/components/site/Primitives';
+import { DeliveryProcess } from '@/components/site/DeliveryProcess';
+import { ServiceDiagram } from '@/components/site/ServiceDiagram';
+import { siteMetadata } from '@/lib/siteMetadata';
+
+export const metadata = siteMetadata('About our team', 'Laxitech combines software engineering, cloud architecture and infrastructure operations in one practical engineering partnership.', '/about');
+
+export default function AboutPage() {
+  return <><PageIntro lines={['Engineers.', 'And your partners.']} description="We bring the people who build software and the people who run it into one conversation." /><section className="site-container site-about-statement"><Reveal><p className="site-large-statement">Technology is only useful when it works for the people behind the business.</p><p>Laxitech connects custom software, cloud architecture and infrastructure operations. We work with founders, businesses and engineering teams to build new systems, improve existing ones and take care of what comes after launch.</p><p>Our approach is direct: understand the problem, make the decisions visible and deliver work your team can own.</p></Reveal><ServiceDiagram kind="software" label="One engineering partnership" nodes={['Your ambition', 'Our engineering', 'Your next chapter']} /></section><section className="site-section site-container"><SectionHeading title={<>The way we work<br />is part of the work.</>} /><div className="site-values-grid">{[['Clarity before complexity.', 'Make the scope, architecture and trade-offs understandable. The best decision is one your team can stand behind.'], ['People behind the systems.', 'Work with engineers who understand the context, take responsibility and communicate directly.'], ['Ownership that lasts.', 'Build maintainable systems and a useful handover, so your next chapter is not tied to a black box.']].map(([title, text]) => <Reveal key={title}><h3>{title}</h3><p>{text}</p></Reveal>)}</div></section><section className="site-outcome-section"><div className="site-container"><Reveal><p>From a single technical challenge to the systems your business runs on.</p><Link className="site-inline-link" href="/services">Meet the engineering practice <ArrowUpRight /></Link></Reveal></div></section><DeliveryProcess /><PageClose title="Let’s get to know your business." /></>;
+}

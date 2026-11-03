@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /design-preview
+Disallow: /contact/thank-you
+
+Sitemap: https://laxitech.com/sitemap.xml

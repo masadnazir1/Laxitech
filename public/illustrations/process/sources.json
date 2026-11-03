@@ -1,0 +1,82 @@
+{
+  "collection": "3dicons V1",
+  "creator": "Vijay Verma (realvjy)",
+  "license": "CC0-1.0",
+  "licenseUrl": "https://github.com/realvjy/3dicons/blob/develop/LICENSE",
+  "collectionUrl": "https://3dicons.co/collection/b68cf8-v1",
+  "modifications": "Clay renders recolored to the Laxitech dark/light palette, cropped and encoded as transparent 320px WebP.",
+  "assets": [
+    {
+      "name": "discovery",
+      "title": "Chat Bubble",
+      "source": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/chat-bubble-dynamic-clay.png",
+      "sourceSha256": "9824d5fcb9146c2e473e3af313faae5b5ec5998b94aae11a439a57c17cfb030d",
+      "variants": [
+        {
+          "file": "discovery-dark.webp",
+          "bytes": 8548,
+          "sha256": "2c8f547b24ce821fb3af87fa8125fd14be73fa29df0efb9ac7090d9c62061a09"
+        },
+        {
+          "file": "discovery-light.webp",
+          "bytes": 10118,
+          "sha256": "664c710af823d981a1f689ec7b417ebcb463389acf371f88497781e8e9d91ac6"
+        }
+      ]
+    },
+    {
+      "name": "planning",
+      "title": "File Text",
+      "source": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/file-text-dynamic-clay.png",
+      "sourceSha256": "5a61e5454ff7f26d37fd4a7369acde9be4d4d7a60e6e0424a1af1fa52e0346d3",
+      "variants": [
+        {
+          "file": "planning-dark.webp",
+          "bytes": 9260,
+          "sha256": "26d5b8cc03519b0f1ffa2e8c8f4ee6cd54f1c2892860278e18c906a69c53abeb"
+        },
+        {
+          "file": "planning-light.webp",
+          "bytes": 11230,
+          "sha256": "a78d572872db48b4c3c8edaa01c91dde2e6a898163931e8567c063310cc15f6b"
+        }
+      ]
+    },
+    {
+      "name": "engineering",
+      "title": "Setting",
+      "source": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/setting-dynamic-clay.png",
+      "sourceSha256": "2e519d22bd8587f5b22bee529206eeefab30ba61cc41adc707a49e2db5a485be",
+      "variants": [
+        {
+          "file": "engineering-dark.webp",
+          "bytes": 12386,
+          "sha256": "1d3b46ef83a52d11cc5a2c7a6c750ae001d8a12b7b432131d8add1f20808b552"
+        },
+        {
+          "file": "engineering-light.webp",
+          "bytes": 14402,
+          "sha256": "0dd595fb9e0aee1a690c69190d194c19b134cc1e62e10690cf8cc8be66cc3f78"
+        }
+      ]
+    },
+    {
+      "name": "launch",
+      "title": "Rocket",
+      "source": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/rocket-dynamic-clay.png",
+      "sourceSha256": "6c4b4c0ee85d6476254693133fb6297fc809ad733749a156ce31b83e405b1006",
+      "variants": [
+        {
+          "file": "launch-dark.webp",
+          "bytes": 10038,
+          "sha256": "798f24b35c82bb932563478acb5910aa9a9d24ffe1f655ca5a2d5bbcaa2e412a"
+        },
+        {
+          "file": "launch-light.webp",
+          "bytes": 12374,
+          "sha256": "cf567df9ad029131436ee106d4ff0c5026656d556e8e7b97aa0d90bb004739bb"
+        }
+      ]
+    }
+  ]
+}
