@@ -11,3 +11,5 @@ build/
 .taste-skill/
 tsconfig.tsbuildinfo
 .mcp.json
+
+/public/sitemap.xml

@@ -55,6 +55,7 @@ server. Rebuild before previewing after code changes.
 | `npm run lint` | ESLint (zero warnings is the project standard) |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm test` | `node --test` over `data/*.test.ts` and `lib/*.test.ts` (38 tests) |
+| `npm run sitemap` | Regenerate `public/sitemap.xml` from `data/` (also runs on `postinstall`, `predev` and `prebuild`) |
 | `npm run clean` | `next clean` |
 
 Quality gates used by the project:
@@ -93,7 +94,7 @@ Legacy aliases redirect permanently to canonical routes (see `docs/ARCHITECTURE.
 ## Repository map
 
 ```
-app/                 routes, layout, global CSS, sitemap, OG image
+app/                 routes, layout, global CSS, OG image
 components/
   layout/            Navbar, Footer, RoutePreloader
   motion/            MotionProvider (Lenis), LiveAtmosphereField (WebGL), primitives
@@ -105,7 +106,7 @@ components/
 data/                all editorial and product content (single source of truth)
 lib/                 pure helpers (hero timing, hardware tier, metadata, motion math)
 public/              fonts, models, hero posters, illustrations, media
-scripts/preview.mjs  standalone preview launcher
+scripts/             standalone preview launcher + sitemap generator
 docs/                onboarding documentation (this handover)
 ```
 

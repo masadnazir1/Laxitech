@@ -7,12 +7,13 @@ tests or compatibility but not reachable from the current UI. **Tooling** = buil
 
 | File | Status | Notes |
 | --- | --- | --- |
-| `app/` | Live | Routes, layout, CSS, sitemap, OG image |
+| `app/` | Live | Routes, layout, CSS, OG image |
 | `components/` | Live | See below |
 | `data/` | Live/Legacy | Content models; only three files drive the current UI |
 | `lib/` | Live | Pure helpers + tests |
 | `public/` | Live | 33 MB of fonts, models, posters, illustrations, media |
 | `scripts/preview.mjs` | Live | Standalone preview launcher |
+| `scripts/generate-sitemap.mjs` | Live | Writes `public/sitemap.xml` from `data/` on install, dev and build |
 | `types/mockup-player.d.ts` | Legacy | Types for the unused 3D mockup player |
 | `next.config.ts` | Live | Standalone output, headers, image allowlist |
 | `tsconfig.json` | Live | Strict TS, `@/*` path alias |
@@ -55,7 +56,6 @@ tests or compatibility but not reachable from the current UI. **Tooling** = buil
 | `not-found.tsx` | 404 |
 | `design-preview/page.tsx` | Hero study (`noindex`) |
 | `opengraph-image.tsx` | 1200×630 OG image |
-| `sitemap.ts` | 22 canonical URLs |
 | `about-us/page.tsx` | Redirect → `/about` |
 | `blog/page.tsx`, `blogs/page.tsx` | Redirect → `/insights` |
 | `blog/[slug]`, `blogs/[slug]` | Redirect → `/insights/[slug]` |

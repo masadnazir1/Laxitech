@@ -91,7 +91,7 @@ app/layout.tsx
 | Nav / footer links | `components/layout/Navbar.tsx`, `components/layout/Footer.tsx` |
 | Policy pages | `app/*-policy/page.tsx` → shared `components/site/PolicyPage.tsx` |
 | Metadata / canonical URL | `lib/siteMetadata.ts`, `app/layout.tsx`, `data/laxitechSite.ts` |
-| Sitemap | `app/sitemap.ts` |
+| Sitemap | `scripts/generate-sitemap.mjs` → `public/sitemap.xml` (runs on `postinstall`, `predev`, `prebuild`) |
 | Social/OG image | `app/opengraph-image.tsx` |
 | Global colors / type tokens | `app/globals.css`, `app/hero.css` |
 | Section layout | `app/site.css` |
@@ -111,7 +111,7 @@ app/layout.tsx
 ### Adding an insight
 
 1. Append to `INSIGHTS` in `data/insights.ts` (`slug`, `headline`, `sections`, `relatedService`).
-2. `app/insights/[slug]/page.tsx` and `app/sitemap.ts` pick it up automatically.
+2. `app/insights/[slug]/page.tsx` and `scripts/generate-sitemap.mjs` pick it up automatically.
 3. If you need a legacy URL, add it to `INSIGHT_ALIASES`.
 
 ### Changing prices

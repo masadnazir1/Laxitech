@@ -10,6 +10,10 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "node --test data/*.test.ts lib/*.test.ts",
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "postinstall": "npm run sitemap",
+    "predev": "npm run sitemap",
+    "prebuild": "npm run sitemap",
     "clean": "next clean"
   },
   "dependencies": {

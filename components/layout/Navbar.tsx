@@ -9,6 +9,7 @@ import { LaxitechWordmark } from '@/components/brand/LaxitechWordmark';
 import { SplitRollText } from '@/components/ui/SplitRollText';
 
 const NAV_LINKS = [
+  { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
   { label: 'Solutions', href: '/solutions' },
   { label: 'Products', href: '/products' },

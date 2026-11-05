@@ -153,7 +153,8 @@ Keep new services in the same shape. Do not add "starting at" prices to service 
   sentence (~150–160 characters).
 - Canonicals are absolute and derived from `SITE.url`.
 - `noindex` pages: `/contact/thank-you`, `/design-preview`.
-- The sitemap is generated from `data/`; adding content automatically adds URLs.
+- The sitemap is generated from `data/` by `scripts/generate-sitemap.mjs` into
+  `public/sitemap.xml`; adding content adds URLs on the next install, dev or build run.
 - OG image: `app/opengraph-image.tsx` at 1200×630. If the brand changes, update it there.
 
 ## 9. Legal pages

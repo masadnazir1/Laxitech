@@ -78,8 +78,8 @@ menu lock the page. `MotionConfig reducedMotion="user"` makes Motion respect the
 | `/terms-and-conditions` | `app/terms-and-conditions/page.tsx` | Shared `PolicyPage` |
 | `/refund-policy` | `app/refund-policy/page.tsx` | Shared `PolicyPage` |
 
-Sitemap (`app/sitemap.ts`) lists 13 static routes + 6 services + 3 insights = **22 canonical
-URLs**.
+Sitemap (`scripts/generate-sitemap.mjs` → `public/sitemap.xml`) lists 13 static routes + 6 services
++ 3 insights = **22 canonical URLs**.
 
 ### Redirects / aliases
 
@@ -207,7 +207,9 @@ Contact data is escaped by React; recipients come from `SITE`; email/message val
 ## 9. SEO
 
 - `lib/siteMetadata.ts` builds canonical + OpenGraph per page.
-- `app/sitemap.ts` (21 URLs), `app/opengraph-image.tsx` (1200×630), `app/not-found.tsx`.
+- `scripts/generate-sitemap.mjs` writes `public/sitemap.xml` (22 URLs) from `data/`; it runs on
+  `postinstall`, `predev` and `prebuild`. `app/opengraph-image.tsx` (1200×630) and
+  `app/not-found.tsx` cover the remaining SEO surface.
 - JSON-LD Organization block in `layout.tsx`.
 - `metadataBase` uses `SITE.url`; change it in `data/laxitechSite.ts` only.
 - Aliases use permanent redirects so legacy URLs do not create duplicate content.
@@ -217,5 +219,5 @@ Contact data is escaped by React; recipients come from `SITE`; email/message val
 - `next build` → `.next/`, `.next/standalone/`.
 - `scripts/preview.mjs` links `standalone/public` and `standalone/.next/static`, then runs
   `server.js` with `PORT=3001`.
-- 66 HTML artifacts were present in the last build (21 sitemap URLs plus aliases, static params and
+- 66 HTML artifacts were present in the last build (22 sitemap URLs plus aliases, static params and
   fallbacks). The exact count changes as content is added; do not treat it as a contract.
