@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     'Zero-Trust IT Infrastructure',
     'DevOps CI/CD Automation',
     'GXMail Business Email',
+    'GXNotify Notification API',
   ],
   authors: [{ name: SITE.name, url: SITE.url }],
   creator: SITE.name,

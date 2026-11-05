@@ -40,14 +40,14 @@ Policy pages (`/privacy-policy`, `/terms-and-conditions`, `/refund-policy`) are 
 | Hero laptop lid-opening entrance | **Done.** Verified frame-by-frame (lid 3.0 → 9.9833 over 2.6 s, screen opacity gated, camera fixed at 13.333333). Unit-tested. |
 | Hero fallback posters | **Done.** `public/hero/*.webp` regenerated for the new closed-lid first frame (16 files, with `-closed` variants for the 3D path and open variants served under reduced-motion). Backups of old ones: `/tmp/opencode/laxitech-posters-before-opening/`. |
 | 2.5D illustration system | **Done.** One reusable system (`components/illustrations/EngineeringIllustration.tsx` + `app/illustrations.css`) with 8 scenes (software, cloud, vps, infrastructure, automation, devops, security, mail), themed, hover layer separation, pointer tilt, reduced-motion stop. Adopted on services index, six service-detail pages, solutions, about, insights thumbnails, product interfaces, hero screen, mobile service rows. |
-| Product pages honesty rebuild | **Done.** VPS plan explorer driven by real `VPS_PLANS` values (999 / 1,799 / 3,299); GXMail billing 250 monthly / 2,999 yearly; address preview `hello@`/`sales@` with visitor domain; no popularity badges. |
+| Product pages honesty rebuild | **Done.** VPS plan explorer is driven by real `VPS_PLANS` values (999 / 1,799 / 3,299). GXMail shows three verified tiers from `GXMAIL_PLANS` (250/3,000; 333/3,999; 500/5,999), including plan limits. The address preview uses the visitor's domain, with no popularity badges. GXNotify shows three monthly tiers from `GXNOTIFY_PLANS` (500/1,999/3,999) with per-channel quotas. |
 | Capability section + Kexsio background | **Done.** Former `99.99%/150+/24-7` pinned shader stage replaced by a Build/Connect/Operate chapter using the licensed Kexsio "Threads" background (re-authored as `components/sections/proof/KexsioThreads.tsx` — throttled, paused off-screen, still under reduced motion, theme-shifted colors). |
 | Policy pages rewrite | **Done.** Neutral, agreement-based wording via `PolicyPage.tsx`. |
 | Micro-interactions & backgrounds | **Done.** Soft disclosure rows (services/FAQ), form focus states, button hover/press choreography, dialog arrive animations, simplified Navbar (no scroll-threshold states, `aria-current`, auto-close), `Reveal` child stagger, seamless section backgrounds, mobile service-row illustrations. |
 | Kexsio MCP integration | **Done.** Works without OpenCode restart (see §8). Component source fetched and re-authored for the site. |
 | Lint hygiene | **Done.** `eslint . --max-warnings 0` passes; the 3 pre-existing legacy warnings were removed rather than kept as baseline. |
-| Tests / typecheck / build | **Done.** 34 unit tests pass; `tsc --noEmit` clean; ESLint passes with zero warnings; production build succeeds (Next.js 16.4.3, Turbopack, 69 generated pages). |
-| SEO/route check | **Done.** 21 canonical pages, 34 internal links, 11 legacy redirects, 1200x630 OG image, 404 behavior verified (`/tmp/opencode/laxitech-route-check.py`). |
+| Tests / typecheck / build | **Done.** 38 unit tests pass; `tsc --noEmit` clean; ESLint passes with zero warnings; production build succeeds (Next.js 16.4.3, Turbopack, 69 generated pages). |
+| SEO/route check | **Done.** 22 canonical pages, 34 internal links, 12 legacy redirects, 1200x630 OG image, 404 behavior verified (`/tmp/opencode/laxitech-route-check.py`). |
 | Local production preview | **Done.** `npm run preview` prepares both standalone asset links and serves port 3001. Final asset check: 64 assets, two stylesheets, zero missing assets. |
 | Browser acceptance suite | **Done.** All 77 checks pass on the final production build, including the navigation regression, contact flow, themes, reduced motion, menu isolation and 768/390/320px route layouts. |
 | Shared button polish | **Implemented.** `ActionArrow` adapts Kexsio's directional CTA into a CSS-only twin-arrow exchange; theme-colored fill, bounded magnetic travel, shared text roll, keyboard and disabled states. |
@@ -66,7 +66,7 @@ Policy pages (`/privacy-policy`, `/terms-and-conditions`, `/refund-policy`) are 
 - User instruction: background animation is mandatory; finish and keep the production-style deployment on localhost only. **Do not remove, disable or replace the live background with a static-only texture.**
 - Current local endpoints: dev `http://localhost:3000`; standalone production preview `http://localhost:3001`. During this active checkpoint, port 3000 has the new premium atmosphere source while port 3001 still serves the prior verified build. Do not deploy externally.
 - Mandatory live motion: one global `AmbientParticleField` is `playing` on every route; `KexsioThreads` provides the stronger capability-section movement. Static screenshots cannot show animation. Reduced motion is the only intentional still mode.
-- Final gates: build PASS; 34/34 tests PASS; typecheck PASS; ESLint zero warnings; taste source lint zero findings; 77/77 acceptance PASS; 56/56 motion/security behavior PASS; route/SEO PASS; asset delivery PASS; security-header/cache PASS; final inspect 0 FAIL / 2 defended WARN.
+- Final gates: build PASS; 38/38 tests PASS; typecheck PASS; ESLint zero warnings; taste source lint zero findings; 77/77 acceptance PASS; 56/56 motion/security behavior PASS; route/SEO PASS; asset delivery PASS; security-header/cache PASS; final inspect 0 FAIL / 2 defended WARN.
 - The local inspector was corrected to skip internals of legitimate `data-ui` interface fragments during page-level collision checks. This resolved a false report that the MacBook bezel covered its projected interface text; screenshots showed that text was readable.
 - If another AI continues: do not make broad design changes. Start from §7 open items and rerun the final gates after any edit.
 
@@ -82,7 +82,7 @@ Policy pages (`/privacy-policy`, `/terms-and-conditions`, `/refund-policy`) are 
 ## 4. Stack & architecture map
 
 - **Framework**: Next.js 16.4.3 (App Router) + React 19 stack, Turbopack builds, TypeScript strict.
-- **Routing/content**: `app/` pages; content data in `data/` (e.g. `data/heroExperience.ts` → `HERO_SERVICES`, VPS/GXMail plans, insights, blog slugs). Additional legacy routes still exist and are out of the refinement scope: `/blogs`, `/blog/*`, `/cloud-vps`, `/gxmail`, `/about-us`, `/works`, `/templates`.
+- **Routing/content**: `app/` pages; content data in `data/` (e.g. `data/heroExperience.ts` → `HERO_SERVICES`, VPS/GXMail/GXNotify plans, insights, blog slugs). Additional legacy routes still exist and are out of the refinement scope: `/blogs`, `/blog/*`, `/cloud-vps`, `/gxmail`, `/gxnotify`, `/about-us`, `/works`, `/templates`.
 - **Layout shell**: `components/layout/` (Navbar with mobile menu inert/isolation, RoutePreloader curtain) + `components/theme/ThemeProvider` (theme key: `localStorage['vv-theme']`, reflected as `html[data-theme]`).
 - **Motion system**: `components/motion/MotionProvider.tsx` wraps `ReactLenis` (lerp 0.12, anchors offset −104, `stopInertiaOnNavigate`, `respectReducedMotion`) + `MotionConfig`. A `ScrollLifecycle` syncs Lenis with any `body { overflow: hidden }` scroll lock (dialogs, mobile menu). Lenis stays enabled even when scroll is locked.
 - **Sections**: `components/sections/` (hero subfolder is the 3D laptop; `proof/` holds the capability chapter; `works/` is the legacy pinned portfolio wall — left as-is apart from removing two unused handlers).
@@ -108,7 +108,7 @@ Policy pages (`/privacy-policy`, `/terms-and-conditions`, `/refund-policy`) are 
 
 ### 5.3 SelectionControl (`components/site/SelectionControl.tsx`)
 
-- Accessible radiogroup (`button` + `role="radio"`, `aria-checked`, arrow-key navigation) with a shared sliding indicator (`layoutId`). Used by product choice, VPS plan exploration, GXMail billing, mailbox address choice and capability chapters. Hero service navigation uses its own `role="tab"` semantics. Contact budget is a regular text input.
+- Accessible radiogroup (`button` + `role="radio"`, `aria-checked`, arrow-key navigation) with a shared sliding indicator (`layoutId`). Used by product choice, VPS plan exploration, GXMail billing, GXNotify channel preview, mailbox address choice and capability chapters. Hero service navigation uses its own `role="tab"` semantics. Contact budget is a regular text input.
 
 ### 5.4 KexsioThreads (`components/sections/proof/KexsioThreads.tsx`)
 
@@ -163,7 +163,7 @@ Policy pages (`/privacy-policy`, `/terms-and-conditions`, `/refund-policy`) are 
 - **Dev server**: `npm run dev` → http://localhost:3000 (has all recent code).
 - **Production preview**: port 3001. Stop this project's existing preview before rebuilding, then run `npm run build` followed by `npm run preview`.
 - `scripts/preview.mjs` recreates the required relative symlinks (`standalone/public` and `standalone/.next/static`) when missing, validates existing links, and starts the standalone server. No manual cleanup is needed. Rebuilding replaces `.next/standalone`, so an old running preview can otherwise retain a deleted working directory or missing assets.
-- **Quality gates** (all passing at handover): `npm test` (node --test over `data/*.test.ts lib/*.test.ts` — 34 pass), `npm run typecheck`, `npm run lint -- --max-warnings 0`, `python3 /tmp/opencode/laxitech-route-check.py` (SEO/canonical/404), design-taste source lint `node .agents/skills/design-taste-frontend/scripts/lint.mjs <paths>` (0 findings).
+- **Quality gates** (all passing at handover): `npm test` (node --test over `data/*.test.ts lib/*.test.ts` — 38 pass), `npm run typecheck`, `npm run lint -- --max-warnings 0`, `python3 /tmp/opencode/laxitech-route-check.py` (SEO/canonical/404), design-taste source lint `node .agents/skills/design-taste-frontend/scripts/lint.mjs <paths>` (0 findings).
 - **Browser automation** (required for the scripts below): the design-taste CDP helper needs Chrome launched with `--no-sandbox`. A wrapper exists at `/tmp/opencode/laxitech-review-chrome` (system Chrome passthrough) — if `/tmp` was cleared, recreate it. All scripts run with `TASTE_SKILL_TMP=/tmp/opencode CHROME_PATH=/tmp/opencode/laxitech-review-chrome`.
   - Keep routine checks headless. The user specifically asked to stop repeatedly opening temporary `about:blank` desktop windows. The headed `/tmp/opencode/laxitech-desktop-chrome.py` diagnostic wrapper is not the default review command.
   - `/tmp/opencode/laxitech-posters.mjs` — full page screenshot review (older; assertions target the previous design; superseded by the scripts below).

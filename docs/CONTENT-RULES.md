@@ -46,10 +46,36 @@ configurations and dedicated servers on request. Do not add latency, uptime or c
 
 ### GXMail
 
-- PKR **250/month** or **2,999/year**.
-- Own domain, professional mailboxes, secure SMTP/IMAP, SPF/DKIM/DMARC, webmail + admin portal.
-- Do not claim "100% inbox deliverability", "unlimited storage", or a specific mailbox quota unless
-  the business confirms it.
+| Plan         | Monthly | Yearly | Domains | Mailboxes | Shared storage | Mailbox storage         | SMTP credentials | GNotify | Support                   |
+| ------------ | ------- | ------ | ------- | --------- | -------------- | ----------------------- | ---------------- | ------- | ------------------------- |
+| Starter      | 250     | 3,000  | 1       | 15        | 30 GB          | 2 GB per mailbox        | 5                | None    | Email                     |
+| Business     | 333     | 3,999  | 3       | 20        | 60 GB          | 3 GB per mailbox        | 15               | 10%     | Email + WhatsApp          |
+| Business Pro | 500     | 5,999  | 5       | Unlimited | 200 GB         | 5 GB default, flexible  | 20               | 20%     | Priority email + WhatsApp |
+
+- Own domains, professional mailboxes, secure SMTP/IMAP, SPF/DKIM/DMARC, webmail and an
+  administration portal.
+- Storage is shared across a workspace. Business Pro's "Unlimited" value applies to mailbox count,
+  not storage; its 200 GB shared-storage limit still applies.
+- Do not claim "100% inbox deliverability" or "unlimited storage".
+- Source: `gxmail-admin-frontend/src/app/core/services/mock-fixtures.ts` and the GXMail public plans
+  endpoint, verified 2026-11-05.
+
+### GXNotify
+
+| Plan         | Monthly (PKR) | Projects | Email notifications | FCM push | SMS credits | API keys | Templates | Support                          |
+| ------------ | ------------- | -------- | ------------------- | -------- | ----------- | -------- | --------- | -------------------------------- |
+| Starter      | 500           | 1        | 200                 | 100      | 50          | 10       | 5         | Standard                         |
+| Business     | 1,999         | 10       | 100,000             | 10,000   | 500         | 20       | 50        | Dedicated email                  |
+| Business Pro | 3,999         | 50       | 300,000             | 30,000   | 1,000       | 30       | 200       | Priority dedicated email         |
+
+- Channels: transactional email over the customer's SMTP, SMS through their gateway, and FCM push
+  through their Firebase project. One notification model, API keys, templates, subscribers,
+  opt-out state, bounded retries, dead-letter handling, signed webhooks and delivery history.
+- Quotas apply per monthly billing period. Channel availability depends on the providers the
+  customer configures for each project; record those limits honestly rather than promising
+  universal delivery.
+- Source: `gxnotify/src/config/billing-plans.ts`, its billing-plans test and the GXNotify
+  production marketing page, verified 2026-11-05.
 
 ### Company
 
@@ -58,7 +84,10 @@ configurations and dedicated servers on request. Do not add latency, uptime or c
 - WhatsApp: `https://wa.me/923408882796`
 - Cloud portal: `https://cloud.galaxydev.pk/#pricing`
 - Mail signup/login: `https://manage.galaxydev.pk`
-- Webmail: `https://mail.galaxydev.pk`
+- Webmail: `https://webmail.galaxydev.pk`
+- GXNotify sign-in: `https://gxnotify.galaxydev.pk/sign-in`
+- GXNotify sign-up: `https://gxnotify.galaxydev.pk/sign-up`
+- GXNotify dashboard: `https://gxnotify.galaxydev.pk/dashboard`
 
 Source of truth: `data/laxitechSite.ts` → `SITE`.
 

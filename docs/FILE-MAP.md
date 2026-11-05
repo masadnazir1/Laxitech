@@ -44,6 +44,7 @@ tests or compatibility but not reachable from the current UI. **Tooling** = buil
 | `products/page.tsx` | Product switcher |
 | `products/vps/page.tsx` | VPS product page |
 | `products/gxmail/page.tsx` | GXMail product page |
+| `products/gxnotify/page.tsx` | GXNotify product page |
 | `insights/page.tsx` | Guide index |
 | `insights/[slug]/page.tsx` | Guide detail |
 | `contact/page.tsx` | Enquiry form + FAQ |
@@ -54,13 +55,14 @@ tests or compatibility but not reachable from the current UI. **Tooling** = buil
 | `not-found.tsx` | 404 |
 | `design-preview/page.tsx` | Hero study (`noindex`) |
 | `opengraph-image.tsx` | 1200×630 OG image |
-| `sitemap.ts` | 21 canonical URLs |
+| `sitemap.ts` | 22 canonical URLs |
 | `about-us/page.tsx` | Redirect → `/about` |
 | `blog/page.tsx`, `blogs/page.tsx` | Redirect → `/insights` |
 | `blog/[slug]`, `blogs/[slug]` | Redirect → `/insights/[slug]` |
 | `blog/category/[category]`, `blogs/category/[category]` | Redirect → `/insights` |
 | `cloud-vps/page.tsx` | Redirect → `/products/vps` |
 | `gxmail/page.tsx` | Redirect → `/products/gxmail` |
+| `gxnotify/page.tsx` | Redirect → `/products/gxnotify` |
 | `security/page.tsx` | Redirect → `/services/security-engineering` |
 | `templates/page.tsx` | Redirect → `/products` |
 | `works/page.tsx`, `works/[slug]` | Redirect → `/solutions` |
@@ -93,7 +95,7 @@ tests or compatibility but not reachable from the current UI. **Tooling** = buil
 | `SelectionControl.tsx` | Accessible radiogroup with sliding indicator |
 | `ServicesShowcase.tsx` | Home services disclosure + art |
 | `ServiceDiagram.tsx` | Diagram wrapper around `EngineeringIllustration` |
-| `ProductPreviews.tsx` | Product switcher, Cloud/Mail previews, `VpsPricing`, `MailPricing` |
+| `ProductPreviews.tsx` | Product switcher, Cloud/Mail/Notify previews, `VpsPricing`, `MailPricing`, `NotifyPricing` |
 | `DeliveryProcess.tsx` | 4-step process |
 | `Faq.tsx` | Disclosure FAQ |
 | `PolicyPage.tsx` | Shared legal layout |
@@ -191,7 +193,7 @@ tests or compatibility but not reachable from the current UI. **Tooling** = buil
 | `mockupPlayerConfig.ts` | Live | 3D mockup configuration used by `MacBookCanvas` |
 | `portfolioMotion.ts` | Live | Navigation/curtain helpers + motion math |
 | `utils.ts` | Live | `cn()` class merge |
-| `*.test.ts` | Tests | 34 tests total |
+| `*.test.ts` | Tests | 38 tests total |
 
 ## `public/`
 

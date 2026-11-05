@@ -76,7 +76,7 @@ export const TEMPLATE_ITEMS: TemplateCardItem[] = [
   },
   {
     id: 'gxmail-monthly',
-    title: 'GXMail Business Email — Monthly Plan (@yourcompany.com)',
+    title: 'GXMail Starter — Monthly Plan (@yourcompany.com)',
     category: 'GXMail Business Email',
     badge: 'PRO SYSTEM',
     image: '/approach/site-b.webp',
@@ -85,21 +85,20 @@ export const TEMPLATE_ITEMS: TemplateCardItem[] = [
     was: 'Rs 450',
     platformName: 'Authenticated Domain Mail',
     summary:
-      'Professional business email on your domain with SPF, DKIM, and DMARC DNS authentication, automated anti-spam protection, and TLS encrypted SMTP/IMAP.',
+      'Custom-domain email for 1 domain and up to 15 mailboxes, with 30 GB shared storage, 2 GB per mailbox, 5 SMTP credentials, SPF, DKIM, DMARC and secure SMTP/IMAP.',
     slugForPreview: 'mac-vision',
   },
   {
     id: 'gxmail-yearly',
-    title: 'GXMail Annual Suite — Full Organizational Deployment',
+    title: 'GXMail Starter — Yearly Plan (@yourcompany.com)',
     category: 'GXMail Business Email',
     badge: 'PRO SYSTEM',
     image: '/approach/site-c.webp',
     href: '/contact',
-    price: 'Rs 2,999/yr',
-    was: 'Rs 4,800',
-    platformName: 'Annual Discounted Tier',
+    price: 'Rs 3,000/yr',
+    platformName: 'Starter Yearly Billing',
     summary:
-      'Complete organization email solution with team mailboxes, centralized admin controls, webmail access, anti-phishing protection, and priority support.',
+      'The Starter plan billed yearly, with 1 domain, up to 15 mailboxes, 30 GB shared storage, 2 GB per mailbox, 5 SMTP credentials, webmail and administration.',
     slugForPreview: 'superluxuries-store',
   },
   {

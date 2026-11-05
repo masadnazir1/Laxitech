@@ -49,7 +49,7 @@ If the preview shows unstyled HTML or image 404s:
 ## 4. Quality gates
 
 ```bash
-npm test                          # 34 tests: data/*.test.ts + lib/*.test.ts
+npm test                          # 38 tests: data/*.test.ts + lib/*.test.ts
 npm run typecheck                 # tsc --noEmit, strict
 npm run lint -- --max-warnings 0  # ESLint flat config, Next core-web-vitals + TS
 npm run build                     # production build
@@ -59,7 +59,7 @@ Current baseline at handover (2026-11-03):
 
 | Gate | Result |
 | --- | --- |
-| `npm test` | 34 pass, 0 fail |
+| `npm test` | 38 pass, 0 fail |
 | `npm run typecheck` | clean |
 | `npm run lint -- --max-warnings 0` | clean, 0 warnings |
 | `npm run build` | verified before handover (66 HTML artifacts) |
@@ -79,7 +79,8 @@ Run against the production preview, not only dev.
 - [ ] Hero renders, laptop lid opens, no horizontal overflow.
 - [ ] Navbar links, active state, mobile menu open/close, focus return.
 - [ ] Services disclosure: one panel at a time; art updates.
-- [ ] Products switcher and VPS/GXMail price values.
+- [ ] Products switcher, VPS values, all three GXMail cards/billing states, and the three GXNotify
+      plan cards.
 - [ ] FAQ disclosure; long answers wrap within measure.
 - [ ] Contact: validation, honeypot, brief on thank-you, email/WhatsApp encoding.
 - [ ] Footer links, copy-email button, external links have `rel="noopener noreferrer"`.
@@ -189,5 +190,6 @@ Fill these in for the client before handover:
 | Hosting / deployment | _TBD_ |
 | Cloud portal / VPS billing | _TBD_ |
 | GXMail administration | _TBD_ |
+| GXNotify administration | _TBD_ |
 | Content sign-off | _TBD_ |
 | Design / frontend | _TBD_ |

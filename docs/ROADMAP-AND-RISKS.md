@@ -4,14 +4,14 @@
 
 The agreed localhost scope is complete and locally deployed:
 
-- Home, services (index + 6 details), solutions, products (index + VPS + GXMail), about, insights
+- Home, services (index + 6 details), solutions, products (index + VPS + GXMail + GXNotify), about, insights
   (index + 3 guides), contact + thank-you, three policy pages, 404.
 - Hero 3D laptop with a lid-opening entrance and poster fallbacks.
 - One 2.5D illustration system reused across the site.
 - One global WebGL atmosphere with six section-aware scenes, plus the Kexsio threads background.
 - Accessible selection controls, disclosures, dialogs, theme toggle and mobile navigation.
 - Local production preview on port 3001 with security headers and cache separation.
-- Quality gates: 34/34 unit tests, typecheck clean, ESLint zero warnings, production build
+- Quality gates: 38/38 unit tests, typecheck clean, ESLint zero warnings, production build
   verified (66 HTML artifacts).
 
 This is a completion statement for the agreed scope, not a public-launch claim. External release
@@ -161,7 +161,11 @@ tests. Remove only with explicit approval, in a separate commit, and after a ful
 **Content**
 
 - [ ] `SITE` email/phone/portals/URL confirmed.
-- [ ] VPS and GXMail prices confirmed.
+- [ ] VPS prices confirmed.
+- [x] GXMail plans confirmed against the administration frontend and public plans endpoint on
+  2026-11-05.
+- [x] GXNotify plans and production URLs confirmed against `gxnotify` source and its production
+  site on 2026-11-05.
 - [ ] No banned claim from `docs/CONTENT-RULES.md`.
 - [ ] Legal pages reviewed.
 - [ ] Contact copy matches the actual handoff behavior.

@@ -1,8 +1,8 @@
 # Laxitech — marketing & product site
 
 Production-style marketing site for **Laxitech** (enterprise software, cloud architecture and
-Pakistan-hosted infrastructure), plus the product pages for **NVMe Cloud VPS** and **GXMail**
-business email.
+Pakistan-hosted infrastructure), plus the product pages for **NVMe Cloud VPS**, **GXMail**
+business email and **GXNotify** multi-channel notifications.
 
 Built with **Next.js 16.4.3 (App Router)**, **React 19**, **TypeScript (strict)**, **Tailwind CSS 4**,
 **Motion**, **GSAP**, **Lenis** and **Three.js**.
@@ -54,7 +54,7 @@ server. Rebuild before previewing after code changes.
 | `npm run preview` | Build output → standalone server on port 3001 |
 | `npm run lint` | ESLint (zero warnings is the project standard) |
 | `npm run typecheck` | `tsc --noEmit` |
-| `npm test` | `node --test` over `data/*.test.ts` and `lib/*.test.ts` (34 tests) |
+| `npm test` | `node --test` over `data/*.test.ts` and `lib/*.test.ts` (38 tests) |
 | `npm run clean` | `next clean` |
 
 Quality gates used by the project:
@@ -76,9 +76,10 @@ Canonical pages (all in `app/`):
 | `/services` | Engineering practice directory |
 | `/services/[slug]` | Six service detail pages (`software-engineering`, `cloud-architecture`, `infrastructure`, `devops-automation`, `ai-automation`, `security-engineering`) |
 | `/solutions` | Three engagement tracks |
-| `/products` | Product switcher (cloud / GXMail) |
+| `/products` | Product switcher (cloud / GXMail / GXNotify) |
 | `/products/vps` | VPS plans, features, FAQ |
 | `/products/gxmail` | GXMail pricing, features, onboarding, FAQ |
+| `/products/gxnotify` | GXNotify pricing, features, onboarding, FAQ |
 | `/about` | Team position, values, process |
 | `/insights` | Three long-form engineering guides |
 | `/insights/[slug]` | Guide detail |

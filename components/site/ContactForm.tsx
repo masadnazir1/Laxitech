@@ -6,7 +6,7 @@ import { ActionArrow } from '@/components/ui/ActionArrow';
 import { ENGINEERING_SERVICES } from '@/data/laxitechSite';
 import { SplitRollText } from '@/components/ui/SplitRollText';
 
-const OPTIONS = [...ENGINEERING_SERVICES.map((service) => ({ value: service.slug, label: service.name })), { value: 'VPS hosting', label: 'VPS & dedicated hosting' }, { value: 'GXMail', label: 'GXMail business email' }, { value: 'Not sure yet', label: 'Help me find the right approach' }];
+const OPTIONS = [...ENGINEERING_SERVICES.map((service) => ({ value: service.slug, label: service.name })), { value: 'VPS hosting', label: 'VPS & dedicated hosting' }, { value: 'GXMail', label: 'GXMail business email' }, { value: 'GXNotify', label: 'GXNotify notification API' }, { value: 'Not sure yet', label: 'Help me find the right approach' }];
 
 export function ContactForm({ initialService = '' }: { initialService?: string }) {
   const router = useRouter();

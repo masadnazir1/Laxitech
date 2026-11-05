@@ -1,6 +1,6 @@
 # Laxitech — Developer Handover
 
-**Last updated:** 2026-11-03
+**Last updated:** 2026-11-05
 **Status:** feature-complete for the agreed localhost scope; production build and browser
 acceptance were verified before handover. This document is the practical onboarding guide.
 For the full design/refinement history and measured results, read
@@ -12,17 +12,20 @@ For the full design/refinement history and measured results, read
 
 A Next.js 16 (App Router) marketing and product site for **Laxitech**, an engineering company
 offering custom software, cloud architecture, IT infrastructure, DevOps, AI automation and
-security engineering. It also sells two products:
+security engineering. It also sells three products:
 
 - **NVMe Cloud VPS** — Pakistan-hosted plans at PKR 999 / 1,799 / 3,299 per month.
-- **GXMail** — business email on the customer's domain at PKR 250/month or 2,999/year.
+- **GXMail** — three custom-domain email tiers: Starter at PKR 250/month or 3,000/year,
+  Business at 333/month or 3,999/year, and Business Pro at 500/month or 5,999/year.
+- **GXNotify** — one notification API for email, SMS and FCM push, with monthly plans at
+  PKR 500 / 1,999 / 3,999.
 
 The site's job is credibility and enquiry generation. The contact flow does **not** submit to a
 backend; it builds a project brief, stores it in `sessionStorage`, and hands off to email or
 WhatsApp. Keep that honest.
 
 **Primary conversion:** `/contact` (and `?service=` deep links from every service page).
-**Secondary:** external cloud portal and GXMail signup links in `data/laxitechSite.ts`.
+**Secondary:** external cloud portal and GXMail/GXNotify signup links in `data/laxitechSite.ts`.
 
 ## 2. First 30 minutes
 
@@ -79,9 +82,10 @@ app/layout.tsx
 | Company name, email, phone, portal URLs | `data/laxitechSite.ts` → `SITE` |
 | Services (copy, stack, deliverables, nodes) | `data/laxitechSite.ts` → `ENGINEERING_SERVICES` |
 | VPS plans / prices | `data/laxitechSite.ts` → `VPS_PLANS` (used by `VpsPricing`) |
-| GXMail price | `components/site/ProductPreviews.tsx` → `MailPricing` (`250` / `2,999`) |
+| GXMail plans / prices | `data/laxitechSite.ts` → `GXMAIL_PLANS` (used by `MailPricing`) |
+| GXNotify plans / prices | `data/laxitechSite.ts` → `GXNOTIFY_PLANS` (used by `NotifyPricing`) |
 | Delivery process steps + art mapping | `data/laxitechSite.ts` → `DELIVERY_STEPS` |
-| FAQs | `data/laxitechSite.ts` → `GENERAL_FAQS`, `CLOUD_FAQS`, `MAIL_FAQS` |
+| FAQs | `data/laxitechSite.ts` → `GENERAL_FAQS`, `CLOUD_FAQS`, `MAIL_FAQS`, `NOTIFY_FAQS` |
 | Insights / guides | `data/insights.ts` → `INSIGHTS` (+ aliases) |
 | Home hero copy / service tabs | `data/heroExperience.ts` → `HERO_COPY`, `HERO_SERVICES` |
 | Nav / footer links | `components/layout/Navbar.tsx`, `components/layout/Footer.tsx` |
@@ -112,8 +116,10 @@ app/layout.tsx
 
 ### Changing prices
 
-Prices appear in two places by design: `VPS_PLANS` (home + VPS page) and `MailPricing` (home +
-GXMail page). Update both and check `data/*.test.ts` expectations. Do not invent "starting at"
+Product prices live in `VPS_PLANS`, `GXMAIL_PLANS` and `GXNOTIFY_PLANS` in `data/laxitechSite.ts`.
+The home product preview derives its starting prices from those arrays, and the product pages use
+the same values.
+Update the relevant array and `data/*.test.ts` expectations together. Do not invent "starting at"
 figures elsewhere.
 
 ## 5. Non-negotiable content rules
@@ -187,7 +193,7 @@ and avoid creating a new renderer per section.
 ## 8. Verify before you hand anything back
 
 ```bash
-npm test                          # 34 unit tests (data + lib)
+npm test                          # 38 unit tests (data + lib)
 npm run typecheck                 # strict TS, no emit
 npm run lint -- --max-warnings 0  # zero warnings
 npm run build                     # production build
@@ -200,7 +206,8 @@ Manual checklist (desktop + 390px):
 - Theme toggle: dark ↔ light, all sections remain legible, no flash on reload.
 - Navbar: mobile menu opens/closes, focus returns, `aria-current` on active route.
 - Services rows and FAQ: one panel open at a time, keyboard operable.
-- Product switcher, VPS plan view, GXMail billing toggle: numbers match `data/`.
+- Product switcher, VPS plan view, GXMail billing toggle, GXNotify plan cards: numbers match
+  `data/`.
 - Contact: submit → thank-you → email/WhatsApp links contain the encoded brief.
 - Reduced motion: no continuous animation, content visible immediately.
 - 320px: no horizontal scroll; text does not overlap.

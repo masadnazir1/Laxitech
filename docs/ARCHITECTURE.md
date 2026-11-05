@@ -68,6 +68,7 @@ menu lock the page. `MotionConfig reducedMotion="user"` makes Motion respect the
 | `/products` | `app/products/page.tsx` | Product switcher |
 | `/products/vps` | `app/products/vps/page.tsx` | Plans + FAQ |
 | `/products/gxmail` | `app/products/gxmail/page.tsx` | Pricing + onboarding + FAQ |
+| `/products/gxnotify` | `app/products/gxnotify/page.tsx` | Pricing + onboarding + FAQ |
 | `/about` | `app/about/page.tsx` | Values, process |
 | `/insights` | `app/insights/page.tsx` | 3 guides |
 | `/insights/[slug]` | `app/insights/[slug]/page.tsx` | Static guide pages |
@@ -77,7 +78,7 @@ menu lock the page. `MotionConfig reducedMotion="user"` makes Motion respect the
 | `/terms-and-conditions` | `app/terms-and-conditions/page.tsx` | Shared `PolicyPage` |
 | `/refund-policy` | `app/refund-policy/page.tsx` | Shared `PolicyPage` |
 
-Sitemap (`app/sitemap.ts`) lists 12 static routes + 6 services + 3 insights = **21 canonical
+Sitemap (`app/sitemap.ts`) lists 13 static routes + 6 services + 3 insights = **22 canonical
 URLs**.
 
 ### Redirects / aliases
@@ -90,6 +91,7 @@ URLs**.
 | `/blog/category/[category]`, `/blogs/category/[category]` | `/insights` | `permanentRedirect` |
 | `/cloud-vps` | `/products/vps` | `permanentRedirect` |
 | `/gxmail` | `/products/gxmail` | `permanentRedirect` |
+| `/gxnotify` | `/products/gxnotify` | `permanentRedirect` |
 | `/templates` | `/products` | `permanentRedirect` |
 | `/works`, `/works/[slug]` | `/solutions` | `permanentRedirect` |
 | `/security` | `/services/security-engineering` | `permanentRedirect` |
@@ -101,7 +103,7 @@ URLs**.
 
 | File | Exports | Used by |
 | --- | --- | --- |
-| `laxitechSite.ts` | `SITE`, `ENGINEERING_SERVICES`, `SERVICE_ALIASES`, `VPS_PLANS`, `DELIVERY_STEPS`, `GENERAL_FAQS`, `CLOUD_FAQS`, `MAIL_FAQS`, `SOLUTION_TRACKS` | Home, services, solutions, products, footer, contact, sitemap |
+| `laxitechSite.ts` | `SITE`, `ENGINEERING_SERVICES`, `SERVICE_ALIASES`, `VPS_PLANS`, `GXMAIL_PLANS`, `GXNOTIFY_PLANS`, `DELIVERY_STEPS`, `GENERAL_FAQS`, `CLOUD_FAQS`, `MAIL_FAQS`, `NOTIFY_FAQS`, `SOLUTION_TRACKS` | Home, services, solutions, products, footer, contact, sitemap |
 | `heroExperience.ts` | `HERO_COPY`, `HERO_SERVICES`, demo request/workflow/deployment steps | Hero tabs and screen content |
 | `insights.ts` | `INSIGHTS`, `INSIGHT_ALIASES` | Insights index/detail, sitemap, blog aliases |
 | `assetRegistry.ts` | team avatars, Cloudinary maps, snapshot sequences, placeholders | Legacy works/studio components |
@@ -114,11 +116,17 @@ second source of truth for a price or a service name.
 
 - VPS: `Starter` 999 / 1 vCPU / 2 GB / 30 GB / 1 TB; `Business` 1,799 / 2 / 4 GB / 60 GB / 2 TB;
   `Pro` 3,299 / 4 / 8 GB / 120 GB / 4 TB.
-- GXMail: 250/month or 2,999/year.
+- GXMail: `GXMAIL_PLANS` contains Starter (250/month or 3,000/year), Business (333/month or
+  3,999/year) and Business Pro (500/month or 5,999/year), plus each tier's published limits.
+- GXNotify: `GXNOTIFY_PLANS` contains Starter (500/month), Business (1,999/month) and Business Pro
+  (3,999/month), plus each tier's project, email, push, SMS, API-key and template limits.
 - `SITE.cloudPortal` → `https://cloud.galaxydev.pk/#pricing`
 - `SITE.mailSignup` → `https://manage.galaxydev.pk/auth/register`
 - `SITE.mailPortal` → `https://manage.galaxydev.pk/auth/login`
-- `SITE.webmail` → `https://mail.galaxydev.pk`
+- `SITE.webmail` → `https://webmail.galaxydev.pk`
+- `SITE.notifySignIn` → `https://gxnotify.galaxydev.pk/sign-in`
+- `SITE.notifySignUp` → `https://gxnotify.galaxydev.pk/sign-up`
+- `SITE.notifyDashboard` → `https://gxnotify.galaxydev.pk/dashboard`
 
 ## 5. Shared UI layer
 
@@ -127,7 +135,7 @@ second source of truth for a price or a service name.
 | `components/site/Primitives.tsx` | `Reveal`, `SiteButton`, `PageIntro`, `SectionHeading`, `PageClose` |
 | `components/site/SelectionControl.tsx` | Accessible radiogroup with sliding `layoutId` indicator |
 | `components/site/ServicesShowcase.tsx` | Home services disclosure + art plate |
-| `components/site/ProductPreviews.tsx` | Product switcher, cloud/mail previews, VPS and GXMail pricing |
+| `components/site/ProductPreviews.tsx` | Product switcher, cloud/mail/notify previews, VPS, GXMail and GXNotify pricing |
 | `components/site/DeliveryProcess.tsx` | 4-step process with CC0 illustrations |
 | `components/site/Faq.tsx` | Accessible single-open disclosure list |
 | `components/site/PolicyPage.tsx` | One layout for all three policy pages |

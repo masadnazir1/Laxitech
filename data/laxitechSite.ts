@@ -7,7 +7,10 @@ export const SITE = {
   cloudPortal: "https://cloud.galaxydev.pk/#pricing",
   mailSignup: "https://manage.galaxydev.pk/auth/register",
   mailPortal: "https://manage.galaxydev.pk/auth/login",
-  webmail: "https://mail.galaxydev.pk",
+  webmail: "https://webmail.galaxydev.pk",
+  notifyDashboard: "https://gxnotify.galaxydev.pk/dashboard",
+  notifySignIn: "https://gxnotify.galaxydev.pk/sign-in",
+  notifySignUp: "https://gxnotify.galaxydev.pk/sign-up",
 } as const;
 
 export type ServiceKind =
@@ -312,6 +315,117 @@ export const VPS_PLANS = [
   },
 ] as const;
 
+/**
+ * GXMail's published plans. These values mirror the GXMail administration
+ * frontend and its public plans endpoint, verified on 2026-11-05.
+ */
+export const GXMAIL_PLANS = [
+  {
+    code: "starter",
+    name: "Starter",
+    description: "For individuals and small businesses.",
+    billing: {
+      monthly: { price: 250, durationDays: 30 },
+      yearly: { price: 3000, durationDays: 365 },
+    },
+    maxDomains: 1,
+    maxMailboxes: 15,
+    sharedStorageGb: 30,
+    defaultMailboxStorageGb: 2,
+    maxMailboxStorageGb: 2,
+    maxSmtpCredentials: 5,
+    gnotifyDiscountPercent: 0,
+    support: "Email",
+  },
+  {
+    code: "business",
+    name: "Business",
+    description: "For growing businesses and professional teams.",
+    billing: {
+      monthly: { price: 333, durationDays: 30 },
+      yearly: { price: 3999, durationDays: 365 },
+    },
+    maxDomains: 3,
+    maxMailboxes: 20,
+    sharedStorageGb: 60,
+    defaultMailboxStorageGb: 3,
+    maxMailboxStorageGb: 3,
+    maxSmtpCredentials: 15,
+    gnotifyDiscountPercent: 10,
+    support: "Email + WhatsApp",
+  },
+  {
+    code: "business-pro",
+    name: "Business Pro",
+    description:
+      "For organisations with larger email infrastructure requirements.",
+    billing: {
+      monthly: { price: 500, durationDays: 30 },
+      yearly: { price: 5999, durationDays: 365 },
+    },
+    maxDomains: 5,
+    maxMailboxes: null,
+    sharedStorageGb: 200,
+    defaultMailboxStorageGb: 5,
+    maxMailboxStorageGb: null,
+    maxSmtpCredentials: 20,
+    gnotifyDiscountPercent: 20,
+    support: "Priority email + WhatsApp",
+  },
+] as const;
+
+/**
+ * GXNotify's published monthly plans. These values mirror the GXNotify source
+ * and its production marketing page, verified on 2026-11-05.
+ */
+export const GXNOTIFY_PLANS = [
+  {
+    code: "starter",
+    name: "Starter",
+    price: 500,
+    audience: "For individual developers.",
+    support: "Standard support",
+    limits: {
+      projects: 1,
+      email: 200,
+      push: 100,
+      sms: 50,
+      apiKeys: 10,
+      templates: 5,
+    },
+  },
+  {
+    code: "business",
+    name: "Business",
+    price: 1999,
+    audience: "For growing businesses.",
+    support: "Dedicated email support",
+    limits: {
+      projects: 10,
+      email: 100000,
+      push: 10000,
+      sms: 500,
+      apiKeys: 20,
+      templates: 50,
+    },
+  },
+  {
+    code: "business-pro",
+    name: "Business Pro",
+    price: 3999,
+    audience: "For agencies and high-volume applications.",
+    support: "Priority dedicated email support",
+    limits: {
+      projects: 50,
+      email: 300000,
+      push: 30000,
+      sms: 1000,
+      apiKeys: 30,
+      templates: 200,
+    },
+  },
+] as const;
+
 export const DELIVERY_STEPS = [
   {
     title: "Understand the work.",
@@ -411,14 +525,52 @@ export const MAIL_FAQS = [
       "GXMail provides secure SMTP and IMAP access so you can connect a compatible mail application. You can also use webmail in your browser.",
   },
   {
+    question: "How do mailbox storage limits work?",
+    answer:
+      "Storage is shared across the mailboxes in your workspace. Starter includes 30 GB with up to 2 GB per mailbox, Business includes 60 GB with up to 3 GB per mailbox, and Business Pro includes 200 GB with a 5 GB default allocation and flexible per-mailbox limits.",
+  },
+  {
     question: "What protects outgoing email?",
     answer:
       "SPF, DKIM and DMARC authenticate your domain and help protect it from spoofing. TLS protects supported connections in transit.",
   },
   {
+    question: "Can an application send through GXMail?",
+    answer:
+      "Yes. You can generate SMTP credentials for applications and services. Starter includes up to 5 credentials, Business 15 and Business Pro 20.",
+  },
+  {
     question: "How do I manage my team’s mailboxes?",
     answer:
-      "The GXMail administration portal provides domain and mailbox management, access controls and billing. Your account defines the available mailbox quotas.",
+      "The GXMail administration portal provides domain and mailbox management, storage allocation, SMTP credentials, access controls and billing. Your selected plan defines the available limits.",
+  },
+] as const;
+
+export const NOTIFY_FAQS = [
+  {
+    question: "Which notification channels does GXNotify support?",
+    answer:
+      "GXNotify supports transactional email, SMS and Firebase Cloud Messaging push notifications through one notification model. Channel availability depends on the providers configured for your project.",
+  },
+  {
+    question: "Do I use my own delivery providers?",
+    answer:
+      "Yes. Connect your own SMTP infrastructure, SMS gateway and Firebase project. GXNotify coordinates delivery without locking your application to one provider.",
+  },
+  {
+    question: "What happens when a delivery fails?",
+    answer:
+      "Transient failures use bounded retries. Permanent failures can move to a dead-letter queue, while the delivery timeline keeps the attempts and provider responses available for inspection.",
+  },
+  {
+    question: "What do the monthly plan limits cover?",
+    answer:
+      "Each plan defines its number of projects, email notifications, FCM push notifications, SMS credits, API keys and reusable templates. The pricing cards show the published limit for every tier.",
+  },
+  {
+    question: "Can I manage recipients and delivery events?",
+    answer:
+      "GXNotify includes subscribers, opt-out status, variable-powered templates, signed webhooks and delivery history so your team can manage and inspect notification activity from one dashboard.",
   },
 ] as const;
 

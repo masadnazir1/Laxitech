@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/products`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${BASE_URL}/products/vps`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE_URL}/products/gxmail`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE_URL}/products/gxnotify`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE_URL}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE_URL}/privacy-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.4 },
     { url: `${BASE_URL}/terms-and-conditions`, lastModified: now, changeFrequency: 'yearly', priority: 0.4 },

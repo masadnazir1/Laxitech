@@ -30,11 +30,11 @@ export function SiteButton({ href, children, secondary = false, external = false
   return secondary ? link : <Magnetic>{link}</Magnetic>;
 }
 
-export function PageIntro({ lines, description, action = 'Get a quote', href = '/contact', children }: { lines: readonly string[]; description: string; action?: string; href?: string; children?: ReactNode }) {
+export function PageIntro({ lines, description, action = 'Get a quote', href = '/contact', external = false, children }: { lines: readonly string[]; description: string; action?: string; href?: string; external?: boolean; children?: ReactNode }) {
   return (
     <header className="site-page-intro site-container" data-atmosphere="rays">
       <TextEffect lines={lines} className="site-page-title" />
-      <div className="site-page-description"><p>{description}</p><div className="site-intro-actions"><SiteButton href={href}>{action}</SiteButton>{children}</div></div>
+      <div className="site-page-description"><p>{description}</p><div className="site-intro-actions"><SiteButton href={href} external={external}>{action}</SiteButton>{children}</div></div>
     </header>
   );
 }
