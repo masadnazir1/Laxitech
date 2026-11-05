@@ -2,7 +2,7 @@ export const SITE = {
   name: "Laxitech",
   url: "https://laxitech.com",
   email: "contact@laxitech.com",
-  phone: "+92 334 151369",
+  phone: "+92 340 8882796",
   whatsapp: "https://wa.me/923408882796",
   cloudPortal: "https://cloud.galaxydev.pk/#pricing",
   mailSignup: "https://manage.galaxydev.pk/auth/register",
