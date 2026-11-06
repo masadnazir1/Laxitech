@@ -22,7 +22,7 @@ export const DEFAULT_STEPS: ProcessStep[] = [
       'System audit, requirements definition, tech stack selection, risk analysis, and infrastructure cost estimation.',
     accent: 'ocean',
     image: '/approach/dashboard.webp',
-    domain: 'galaxydev.pk',
+    domain: 'laxitech.com',
   },
   {
     title: 'Architectural Blueprint',
@@ -30,7 +30,7 @@ export const DEFAULT_STEPS: ProcessStep[] = [
       'Multi-cloud topologies, microservice boundaries, data flow modeling, database schema, and threat modeling.',
     accent: 'coral',
     image: '/approach/panel.webp',
-    domain: 'cloud.galaxydev.pk',
+    domain: 'cloud.laxitech.com',
   },
   {
     title: 'Agile Development',
@@ -46,7 +46,7 @@ export const DEFAULT_STEPS: ProcessStep[] = [
       'Penetration testing, load testing, failover drills, and compliance verification against ISO 27001 and SOC 2.',
     accent: 'ocean',
     image: '/approach/site-b.webp',
-    domain: 'galaxydev.pk',
+    domain: 'laxitech.com',
   },
   {
     title: 'Zero-Downtime Launch & 24/7 Ops',
@@ -54,7 +54,7 @@ export const DEFAULT_STEPS: ProcessStep[] = [
       'Blue/green deployments, round-the-clock infrastructure monitoring, automated backups, and 99.99% SLA uptime.',
     accent: 'coral',
     image: '/approach/site-c.webp',
-    domain: 'cloud.galaxydev.pk',
+    domain: 'cloud.laxitech.com',
   },
 ];
 

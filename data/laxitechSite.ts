@@ -4,13 +4,13 @@ export const SITE = {
   email: "contact@laxitech.com",
   phone: "+92 340 8882796",
   whatsapp: "https://wa.me/923408882796",
-  cloudPortal: "https://cloud.galaxydev.pk/#pricing",
-  mailSignup: "https://manage.galaxydev.pk/auth/register",
-  mailPortal: "https://manage.galaxydev.pk/auth/login",
-  webmail: "https://webmail.galaxydev.pk",
-  notifyDashboard: "https://gxnotify.galaxydev.pk/dashboard",
-  notifySignIn: "https://gxnotify.galaxydev.pk/sign-in",
-  notifySignUp: "https://gxnotify.galaxydev.pk/sign-up",
+  cloudPortal: "https://cloud.laxitech.com/#pricing",
+  mailSignup: "https://manage.laxitech.com/auth/register",
+  mailPortal: "https://manage.laxitech.com/auth/login",
+  webmail: "https://webmail.laxitech.com",
+  notifyDashboard: "https://gxnotify.laxitech.com/dashboard",
+  notifySignIn: "https://gxnotify.laxitech.com/sign-in",
+  notifySignUp: "https://gxnotify.laxitech.com/sign-up",
 } as const;
 
 export type ServiceKind =

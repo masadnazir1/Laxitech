@@ -46,11 +46,11 @@ configurations and dedicated servers on request. Do not add latency, uptime or c
 
 ### GXMail
 
-| Plan         | Monthly | Yearly | Domains | Mailboxes | Shared storage | Mailbox storage         | SMTP credentials | GNotify | Support                   |
-| ------------ | ------- | ------ | ------- | --------- | -------------- | ----------------------- | ---------------- | ------- | ------------------------- |
-| Starter      | 250     | 3,000  | 1       | 15        | 30 GB          | 2 GB per mailbox        | 5                | None    | Email                     |
-| Business     | 333     | 3,999  | 3       | 20        | 60 GB          | 3 GB per mailbox        | 15               | 10%     | Email + WhatsApp          |
-| Business Pro | 500     | 5,999  | 5       | Unlimited | 200 GB         | 5 GB default, flexible  | 20               | 20%     | Priority email + WhatsApp |
+| Plan         | Monthly | Yearly | Domains | Mailboxes | Shared storage | Mailbox storage        | SMTP credentials | GNotify | Support                   |
+| ------------ | ------- | ------ | ------- | --------- | -------------- | ---------------------- | ---------------- | ------- | ------------------------- |
+| Starter      | 250     | 3,000  | 1       | 15        | 30 GB          | 2 GB per mailbox       | 5                | None    | Email                     |
+| Business     | 333     | 3,999  | 3       | 20        | 60 GB          | 3 GB per mailbox       | 15               | 10%     | Email + WhatsApp          |
+| Business Pro | 500     | 5,999  | 5       | Unlimited | 200 GB         | 5 GB default, flexible | 20               | 20%     | Priority email + WhatsApp |
 
 - Own domains, professional mailboxes, secure SMTP/IMAP, SPF/DKIM/DMARC, webmail and an
   administration portal.
@@ -62,11 +62,11 @@ configurations and dedicated servers on request. Do not add latency, uptime or c
 
 ### GXNotify
 
-| Plan         | Monthly (PKR) | Projects | Email notifications | FCM push | SMS credits | API keys | Templates | Support                          |
-| ------------ | ------------- | -------- | ------------------- | -------- | ----------- | -------- | --------- | -------------------------------- |
-| Starter      | 500           | 1        | 200                 | 100      | 50          | 10       | 5         | Standard                         |
-| Business     | 1,999         | 10       | 100,000             | 10,000   | 500         | 20       | 50        | Dedicated email                  |
-| Business Pro | 3,999         | 50       | 300,000             | 30,000   | 1,000       | 30       | 200       | Priority dedicated email         |
+| Plan         | Monthly (PKR) | Projects | Email notifications | FCM push | SMS credits | API keys | Templates | Support                  |
+| ------------ | ------------- | -------- | ------------------- | -------- | ----------- | -------- | --------- | ------------------------ |
+| Starter      | 500           | 1        | 200                 | 100      | 50          | 10       | 5         | Standard                 |
+| Business     | 1,999         | 10       | 100,000             | 10,000   | 500         | 20       | 50        | Dedicated email          |
+| Business Pro | 3,999         | 50       | 300,000             | 30,000   | 1,000       | 30       | 200       | Priority dedicated email |
 
 - Channels: transactional email over the customer's SMTP, SMS through their gateway, and FCM push
   through their Firebase project. One notification model, API keys, templates, subscribers,
@@ -82,12 +82,12 @@ configurations and dedicated servers on request. Do not add latency, uptime or c
 - Email: `contact@laxitech.com`
 - Phone: `+92 334 151369`
 - WhatsApp: `https://wa.me/923408882796`
-- Cloud portal: `https://cloud.galaxydev.pk/#pricing`
-- Mail signup/login: `https://manage.galaxydev.pk`
-- Webmail: `https://webmail.galaxydev.pk`
-- GXNotify sign-in: `https://gxnotify.galaxydev.pk/sign-in`
-- GXNotify sign-up: `https://gxnotify.galaxydev.pk/sign-up`
-- GXNotify dashboard: `https://gxnotify.galaxydev.pk/dashboard`
+- Cloud portal: `https://cloud.laxitech.com/#pricing`
+- Mail signup/login: `https://manage.laxitech.com`
+- Webmail: `https://webmail.laxitech.com`
+- GXNotify sign-in: `https://gxnotify.laxitech.com/sign-in`
+- GXNotify sign-up: `https://gxnotify.laxitech.com/sign-up`
+- GXNotify dashboard: `https://gxnotify.laxitech.com/dashboard`
 
 Source of truth: `data/laxitechSite.ts` → `SITE`.
 

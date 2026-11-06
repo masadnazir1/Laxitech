@@ -59,55 +59,56 @@ menu lock the page. `MotionConfig reducedMotion="user"` makes Motion respect the
 
 ### Canonical (indexable)
 
-| Route | File | Notes |
-| --- | --- | --- |
-| `/` | `app/page.tsx` | Home composition |
-| `/services` | `app/services/page.tsx` | Directory of 6 services |
-| `/services/[slug]` | `app/services/[slug]/page.tsx` | 6 static pages + alias redirects |
-| `/solutions` | `app/solutions/page.tsx` | 3 engagement tracks |
-| `/products` | `app/products/page.tsx` | Product switcher |
-| `/products/vps` | `app/products/vps/page.tsx` | Plans + FAQ |
-| `/products/gxmail` | `app/products/gxmail/page.tsx` | Pricing + onboarding + FAQ |
-| `/products/gxnotify` | `app/products/gxnotify/page.tsx` | Pricing + onboarding + FAQ |
-| `/about` | `app/about/page.tsx` | Values, process |
-| `/insights` | `app/insights/page.tsx` | 3 guides |
-| `/insights/[slug]` | `app/insights/[slug]/page.tsx` | Static guide pages |
-| `/contact` | `app/contact/page.tsx` | `searchParams.service` prefill |
-| `/contact/thank-you` | `app/contact/thank-you/page.tsx` | `noindex`, reads `sessionStorage` |
-| `/privacy-policy` | `app/privacy-policy/page.tsx` | Shared `PolicyPage` |
-| `/terms-and-conditions` | `app/terms-and-conditions/page.tsx` | Shared `PolicyPage` |
-| `/refund-policy` | `app/refund-policy/page.tsx` | Shared `PolicyPage` |
+| Route                   | File                                | Notes                             |
+| ----------------------- | ----------------------------------- | --------------------------------- |
+| `/`                     | `app/page.tsx`                      | Home composition                  |
+| `/services`             | `app/services/page.tsx`             | Directory of 6 services           |
+| `/services/[slug]`      | `app/services/[slug]/page.tsx`      | 6 static pages + alias redirects  |
+| `/solutions`            | `app/solutions/page.tsx`            | 3 engagement tracks               |
+| `/products`             | `app/products/page.tsx`             | Product switcher                  |
+| `/products/vps`         | `app/products/vps/page.tsx`         | Plans + FAQ                       |
+| `/products/gxmail`      | `app/products/gxmail/page.tsx`      | Pricing + onboarding + FAQ        |
+| `/products/gxnotify`    | `app/products/gxnotify/page.tsx`    | Pricing + onboarding + FAQ        |
+| `/about`                | `app/about/page.tsx`                | Values, process                   |
+| `/insights`             | `app/insights/page.tsx`             | 3 guides                          |
+| `/insights/[slug]`      | `app/insights/[slug]/page.tsx`      | Static guide pages                |
+| `/contact`              | `app/contact/page.tsx`              | `searchParams.service` prefill    |
+| `/contact/thank-you`    | `app/contact/thank-you/page.tsx`    | `noindex`, reads `sessionStorage` |
+| `/privacy-policy`       | `app/privacy-policy/page.tsx`       | Shared `PolicyPage`               |
+| `/terms-and-conditions` | `app/terms-and-conditions/page.tsx` | Shared `PolicyPage`               |
+| `/refund-policy`        | `app/refund-policy/page.tsx`        | Shared `PolicyPage`               |
 
 Sitemap (`scripts/generate-sitemap.mjs` → `public/sitemap.xml`) lists 13 static routes + 6 services
-+ 3 insights = **22 canonical URLs**.
+
+- 3 insights = **22 canonical URLs**.
 
 ### Redirects / aliases
 
-| From | To | Mechanism |
-| --- | --- | --- |
-| `/about-us` | `/about` | `permanentRedirect` |
-| `/blog`, `/blogs` | `/insights` | `permanentRedirect` / re-export |
-| `/blog/[slug]`, `/blogs/[slug]` | `/insights/[slug]` | `INSIGHT_ALIASES` + redirect |
-| `/blog/category/[category]`, `/blogs/category/[category]` | `/insights` | `permanentRedirect` |
-| `/cloud-vps` | `/products/vps` | `permanentRedirect` |
-| `/gxmail` | `/products/gxmail` | `permanentRedirect` |
-| `/gxnotify` | `/products/gxnotify` | `permanentRedirect` |
-| `/templates` | `/products` | `permanentRedirect` |
-| `/works`, `/works/[slug]` | `/solutions` | `permanentRedirect` |
-| `/security` | `/services/security-engineering` | `permanentRedirect` |
-| `/services/crafted-websites` etc. | mapped canonical service/product | `SERVICE_ALIASES` |
+| From                                                      | To                               | Mechanism                       |
+| --------------------------------------------------------- | -------------------------------- | ------------------------------- |
+| `/about-us`                                               | `/about`                         | `permanentRedirect`             |
+| `/blog`, `/blogs`                                         | `/insights`                      | `permanentRedirect` / re-export |
+| `/blog/[slug]`, `/blogs/[slug]`                           | `/insights/[slug]`               | `INSIGHT_ALIASES` + redirect    |
+| `/blog/category/[category]`, `/blogs/category/[category]` | `/insights`                      | `permanentRedirect`             |
+| `/cloud-vps`                                              | `/products/vps`                  | `permanentRedirect`             |
+| `/gxmail`                                                 | `/products/gxmail`               | `permanentRedirect`             |
+| `/gxnotify`                                               | `/products/gxnotify`             | `permanentRedirect`             |
+| `/templates`                                              | `/products`                      | `permanentRedirect`             |
+| `/works`, `/works/[slug]`                                 | `/solutions`                     | `permanentRedirect`             |
+| `/security`                                               | `/services/security-engineering` | `permanentRedirect`             |
+| `/services/crafted-websites` etc.                         | mapped canonical service/product | `SERVICE_ALIASES`               |
 
 `/design-preview` is `noindex, nofollow` and is only a hero design study.
 
 ## 4. Content model (`data/`)
 
-| File | Exports | Used by |
-| --- | --- | --- |
-| `laxitechSite.ts` | `SITE`, `ENGINEERING_SERVICES`, `SERVICE_ALIASES`, `VPS_PLANS`, `GXMAIL_PLANS`, `GXNOTIFY_PLANS`, `DELIVERY_STEPS`, `GENERAL_FAQS`, `CLOUD_FAQS`, `MAIL_FAQS`, `NOTIFY_FAQS`, `SOLUTION_TRACKS` | Home, services, solutions, products, footer, contact, sitemap |
-| `heroExperience.ts` | `HERO_COPY`, `HERO_SERVICES`, demo request/workflow/deployment steps | Hero tabs and screen content |
-| `insights.ts` | `INSIGHTS`, `INSIGHT_ALIASES` | Insights index/detail, sitemap, blog aliases |
-| `assetRegistry.ts` | team avatars, Cloudinary maps, snapshot sequences, placeholders | Legacy works/studio components |
-| `blogsData.ts`, `worksData.ts`, `projectsData.ts`, `templatesData.ts`, `featuredWorks.ts`, `servicesPageData.ts`, `aboutPageData.ts`, `studioBioSnippets.ts` | AI Studio-era content models | Mostly legacy routes/components; kept for compatibility |
+| File                                                                                                                                                         | Exports                                                                                                                                                                                         | Used by                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| `laxitechSite.ts`                                                                                                                                            | `SITE`, `ENGINEERING_SERVICES`, `SERVICE_ALIASES`, `VPS_PLANS`, `GXMAIL_PLANS`, `GXNOTIFY_PLANS`, `DELIVERY_STEPS`, `GENERAL_FAQS`, `CLOUD_FAQS`, `MAIL_FAQS`, `NOTIFY_FAQS`, `SOLUTION_TRACKS` | Home, services, solutions, products, footer, contact, sitemap |
+| `heroExperience.ts`                                                                                                                                          | `HERO_COPY`, `HERO_SERVICES`, demo request/workflow/deployment steps                                                                                                                            | Hero tabs and screen content                                  |
+| `insights.ts`                                                                                                                                                | `INSIGHTS`, `INSIGHT_ALIASES`                                                                                                                                                                   | Insights index/detail, sitemap, blog aliases                  |
+| `assetRegistry.ts`                                                                                                                                           | team avatars, Cloudinary maps, snapshot sequences, placeholders                                                                                                                                 | Legacy works/studio components                                |
+| `blogsData.ts`, `worksData.ts`, `projectsData.ts`, `templatesData.ts`, `featuredWorks.ts`, `servicesPageData.ts`, `aboutPageData.ts`, `studioBioSnippets.ts` | AI Studio-era content models                                                                                                                                                                    | Mostly legacy routes/components; kept for compatibility       |
 
 **Rule:** new copy belongs in the narrowest data file that a page already imports. Do not create a
 second source of truth for a price or a service name.
@@ -120,32 +121,32 @@ second source of truth for a price or a service name.
   3,999/year) and Business Pro (500/month or 5,999/year), plus each tier's published limits.
 - GXNotify: `GXNOTIFY_PLANS` contains Starter (500/month), Business (1,999/month) and Business Pro
   (3,999/month), plus each tier's project, email, push, SMS, API-key and template limits.
-- `SITE.cloudPortal` → `https://cloud.galaxydev.pk/#pricing`
-- `SITE.mailSignup` → `https://manage.galaxydev.pk/auth/register`
-- `SITE.mailPortal` → `https://manage.galaxydev.pk/auth/login`
-- `SITE.webmail` → `https://webmail.galaxydev.pk`
-- `SITE.notifySignIn` → `https://gxnotify.galaxydev.pk/sign-in`
-- `SITE.notifySignUp` → `https://gxnotify.galaxydev.pk/sign-up`
-- `SITE.notifyDashboard` → `https://gxnotify.galaxydev.pk/dashboard`
+- `SITE.cloudPortal` → `https://cloud.laxitech.com/#pricing`
+- `SITE.mailSignup` → `https://manage.laxitech.com/auth/register`
+- `SITE.mailPortal` → `https://manage.laxitech.com/auth/login`
+- `SITE.webmail` → `https://webmail.laxitech.com`
+- `SITE.notifySignIn` → `https://gxnotify.laxitech.com/sign-in`
+- `SITE.notifySignUp` → `https://gxnotify.laxitech.com/sign-up`
+- `SITE.notifyDashboard` → `https://gxnotify.laxitech.com/dashboard`
 
 ## 5. Shared UI layer
 
-| Component | Responsibility |
-| --- | --- |
-| `components/site/Primitives.tsx` | `Reveal`, `SiteButton`, `PageIntro`, `SectionHeading`, `PageClose` |
-| `components/site/SelectionControl.tsx` | Accessible radiogroup with sliding `layoutId` indicator |
-| `components/site/ServicesShowcase.tsx` | Home services disclosure + art plate |
-| `components/site/ProductPreviews.tsx` | Product switcher, cloud/mail/notify previews, VPS, GXMail and GXNotify pricing |
-| `components/site/DeliveryProcess.tsx` | 4-step process with CC0 illustrations |
-| `components/site/Faq.tsx` | Accessible single-open disclosure list |
-| `components/site/PolicyPage.tsx` | One layout for all three policy pages |
-| `components/site/ContactForm.tsx` | Validation + honeypot + sessionStorage brief |
-| `components/site/ContactConfirmation.tsx` | Brief review, copy, email/WhatsApp handoff |
-| `components/site/ServiceDiagram.tsx` | 2.5D service diagram wrapper |
-| `components/ui/ActionArrow.tsx` | CSS-only twin arrow CTA cue |
-| `components/ui/SplitRollText.tsx` | Character roll hover (nav, buttons) |
-| `components/motion/TransitionPanel.tsx` | AnimatePresence crossfade/slide between panels |
-| `components/motion/Reveal` (inside Primitives) | In-view stagger with reduced-motion guard |
+| Component                                      | Responsibility                                                                 |
+| ---------------------------------------------- | ------------------------------------------------------------------------------ |
+| `components/site/Primitives.tsx`               | `Reveal`, `SiteButton`, `PageIntro`, `SectionHeading`, `PageClose`             |
+| `components/site/SelectionControl.tsx`         | Accessible radiogroup with sliding `layoutId` indicator                        |
+| `components/site/ServicesShowcase.tsx`         | Home services disclosure + art plate                                           |
+| `components/site/ProductPreviews.tsx`          | Product switcher, cloud/mail/notify previews, VPS, GXMail and GXNotify pricing |
+| `components/site/DeliveryProcess.tsx`          | 4-step process with CC0 illustrations                                          |
+| `components/site/Faq.tsx`                      | Accessible single-open disclosure list                                         |
+| `components/site/PolicyPage.tsx`               | One layout for all three policy pages                                          |
+| `components/site/ContactForm.tsx`              | Validation + honeypot + sessionStorage brief                                   |
+| `components/site/ContactConfirmation.tsx`      | Brief review, copy, email/WhatsApp handoff                                     |
+| `components/site/ServiceDiagram.tsx`           | 2.5D service diagram wrapper                                                   |
+| `components/ui/ActionArrow.tsx`                | CSS-only twin arrow CTA cue                                                    |
+| `components/ui/SplitRollText.tsx`              | Character roll hover (nav, buttons)                                            |
+| `components/motion/TransitionPanel.tsx`        | AnimatePresence crossfade/slide between panels                                 |
+| `components/motion/Reveal` (inside Primitives) | In-view stagger with reduced-motion guard                                      |
 
 `SelectionControl` uses `button[role="radio"]` + `aria-checked` + arrow keys. Hero service tabs use
 `role="tab"` semantics instead — keep the distinction.
@@ -198,7 +199,7 @@ fallback matches the opening start.
 - `Referrer-Policy: strict-origin-when-cross-origin`
 - `Permissions-Policy: camera=(), microphone=(), geolocation=()`
 - Asset cache rule only matches asset folders + known extensions; `public, max-age=86400,
-  stale-while-revalidate=604800`.
+stale-while-revalidate=604800`.
 - Remote images allowed only for `picsum.photos`, `res.cloudinary.com`, `images.unsplash.com`.
 
 Contact data is escaped by React; recipients come from `SITE`; email/message values are
