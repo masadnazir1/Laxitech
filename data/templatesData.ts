@@ -218,13 +218,13 @@ export function getTemplatesBreadcrumbJsonLd() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.laxitech.com/",
+        item: "https://laxitech.com/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Products & Cloud",
-        item: "https://www.laxitech.com/templates",
+        item: "https://laxitech.com/templates",
       },
     ],
   };

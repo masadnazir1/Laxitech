@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SITE } from '@/data/laxitechSite';
+import { SITE, SITE_URL } from '@/data/laxitechSite';
 
 interface SiteMetadataOptions {
   type?: 'website' | 'article';
@@ -13,7 +13,7 @@ export function siteMetadata(
   path: string,
   options?: SiteMetadataOptions
 ): Metadata {
-  const canonicalUrl = `${SITE.url}${path === '/' ? '' : path}`;
+  const canonicalUrl = `${SITE_URL}${path === '/' ? '' : path}`;
   const fullTitle = title.endsWith('Laxitech') ? title : `${title} | Laxitech`;
 
   return {

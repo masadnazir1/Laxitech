@@ -1,9 +1,9 @@
 import type { MetadataRoute } from 'next';
-import { SITE, ENGINEERING_SERVICES } from '@/data/laxitechSite';
+import { SITE_URL, ENGINEERING_SERVICES } from '@/data/laxitechSite';
 import { INSIGHTS } from '@/data/insights';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = SITE.url.replace(/\/$/, '');
+  const baseUrl = SITE_URL.replace(/\/$/, '');
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: baseUrl },

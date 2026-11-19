@@ -29,7 +29,7 @@ export const ALL_WORKS: WorkProject[] = [
     title: "GXMail Enterprise Suite",
     category: "Cloud Architecture",
     image: "/snapshots/movixstudio-2.png",
-    url: "https://www.laxitech.com/",
+    url: "https://laxitech.com/",
     domain: "laxitech.com",
     summary:
       "Dedicated corporate business email infrastructure with automated SPF, DKIM, DMARC, and 100% inbox placement.",
@@ -51,7 +51,7 @@ export const ALL_WORKS: WorkProject[] = [
     title: "cPanel & LiteSpeed Web Hosting",
     category: "Custom Software",
     image: "/snapshots/superluxuries.png",
-    url: "https://www.laxitech.com/",
+    url: "https://laxitech.com/",
     domain: "laxitech.com",
     summary:
       "Turbocharged cPanel hosting powered by LiteSpeed web servers, free Let's Encrypt SSL, and 1-click WordPress staging.",
@@ -112,13 +112,13 @@ export function getWorksBreadcrumbJsonLd() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.laxitech.com/",
+        item: "https://laxitech.com/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Works",
-        item: "https://www.laxitech.com/works",
+        item: "https://laxitech.com/works",
       },
     ],
   };

@@ -3,10 +3,10 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const { SITE, ENGINEERING_SERVICES } = await import('../data/laxitechSite.ts');
+const { SITE, SITE_URL, ENGINEERING_SERVICES } = await import('../data/laxitechSite.ts');
 const { INSIGHTS } = await import('../data/insights.ts');
 
-const baseUrl = SITE.url.replace(/\/$/, '');
+const baseUrl = (SITE_URL || SITE.url).replace(/\/$/, '');
 
 async function getPageLastMod(relPath) {
   try {

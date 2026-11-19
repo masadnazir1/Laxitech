@@ -10,22 +10,22 @@ import { Footer } from '@/components/layout/Footer';
 import { RoutePreloader } from '@/components/layout/RoutePreloader';
 import { MotionProvider } from '@/components/motion/MotionProvider';
 import { LiveAtmosphereField } from '@/components/motion/LiveAtmosphereField';
-import { SITE } from '@/data/laxitechSite';
+import { SITE, SITE_URL } from '@/data/laxitechSite';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE.url),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Laxitech | Software, cloud & engineering',
     template: '%s | Laxitech',
   },
   description:
     'Custom software, intelligent automation and dependable infrastructure. Laxitech is your engineering partner from idea to operation.',
-  authors: [{ name: SITE.name, url: SITE.url }],
+  authors: [{ name: SITE.name, url: SITE_URL }],
   creator: SITE.name,
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: SITE.url,
+    url: SITE_URL,
     siteName: 'Laxitech',
     title: 'Laxitech | Software, cloud & engineering',
     description:

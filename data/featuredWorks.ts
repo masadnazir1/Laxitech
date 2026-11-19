@@ -28,7 +28,7 @@ export const FEATURED_WORKS: FeaturedWork[] = [
     titleAccent: "Suite",
     description:
       "Dedicated corporate email infrastructure with 100% inbox deliverability, automated SPF/DKIM/DMARC authentication, and proactive spam shielding.",
-    liveUrl: "https://www.laxitech.com/",
+    liveUrl: "https://laxitech.com/",
     img: "/snapshots/movixstudio-2.png",
     accentColor: "#8B5CF6",
   },
@@ -50,7 +50,7 @@ export const FEATURED_WORKS: FeaturedWork[] = [
     titleAccent: "Hosting",
     description:
       "Turbocharged enterprise cPanel web hosting powered by LiteSpeed web servers, free Let's Encrypt SSL, 1-click WordPress staging, and automated daily backups.",
-    liveUrl: "https://www.laxitech.com/",
+    liveUrl: "https://laxitech.com/",
     img: "/snapshots/superluxuries.png",
     accentColor: "#7C3AED",
   },

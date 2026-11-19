@@ -131,13 +131,13 @@ export function getAboutBreadcrumbJsonLd() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.laxitech.com/",
+        item: "https://laxitech.com/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "About Us",
-        item: "https://www.laxitech.com/about-us",
+        item: "https://laxitech.com/about-us",
       },
     ],
   };

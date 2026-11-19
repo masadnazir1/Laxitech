@@ -1,6 +1,8 @@
+export const SITE_URL = "https://laxitech.com";
+
 export const SITE = {
   name: "Laxitech",
-  url: "https://laxitech.com",
+  url: SITE_URL,
   email: "contact@laxitech.com",
   phone: "+92 340 8882796",
   whatsapp: "https://wa.me/923408882796",

@@ -19,13 +19,13 @@ export function getServicesBreadcrumbJsonLd() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.laxitech.com/",
+        item: "https://laxitech.com/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Services",
-        item: "https://www.laxitech.com/services",
+        item: "https://laxitech.com/services",
       },
     ],
   };
