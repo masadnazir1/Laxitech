@@ -15,21 +15,11 @@ import { SITE } from '@/data/laxitechSite';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: 'Laxitech | Enterprise Custom Software & Cloud Infrastructure',
+    default: 'Laxitech | Software, cloud & engineering',
     template: '%s | Laxitech',
   },
   description:
-    'Build a scalable digital future with Laxitech. Modern cloud architecture, enterprise custom software engineering, high-performance Pakistan-hosted VPS, and rock-solid IT infrastructure.',
-  keywords: [
-    'Laxitech',
-    'Pakistan Hosted VPS',
-    'Enterprise Custom Software',
-    'Multi-Cloud Architecture',
-    'Zero-Trust IT Infrastructure',
-    'DevOps CI/CD Automation',
-    'GXMail Business Email',
-    'GXNotify Notification API',
-  ],
+    'Custom software, intelligent automation and dependable infrastructure. Laxitech is your engineering partner from idea to operation.',
   authors: [{ name: SITE.name, url: SITE.url }],
   creator: SITE.name,
   openGraph: {
@@ -37,29 +27,35 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: SITE.url,
     siteName: 'Laxitech',
-    title: 'Laxitech | Enterprise Custom Software & Cloud Infrastructure',
+    title: 'Laxitech | Software, cloud & engineering',
     description:
-      'Engineering high-performance custom software, resilient multi-cloud architecture, and rock-solid IT infrastructure built for high-throughput enterprise demands.',
+      'Custom software, intelligent automation and dependable infrastructure. Laxitech is your engineering partner from idea to operation.',
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Laxitech — Enterprise Custom Software & Cloud Infrastructure',
+        alt: 'Laxitech — Software, cloud & engineering',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Laxitech | Enterprise Custom Software & Cloud Infrastructure',
+    title: 'Laxitech | Software, cloud & engineering',
     description:
-      'Engineering high-performance custom software, resilient multi-cloud architecture, and Pakistan-hosted VPS.',
+      'Custom software, intelligent automation and dependable infrastructure. Laxitech is your engineering partner from idea to operation.',
     images: ['/opengraph-image'],
   },
   icons: {
-    icon: '/brand/laxitech-icon.png',
-    apple: '/brand/laxitech-icon.png',
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
+  manifest: '/manifest.webmanifest',
 };
 
 export default function RootLayout({

@@ -5,7 +5,11 @@ import { CloudPreview, VpsPricing } from '@/components/site/ProductPreviews';
 import { Faq } from '@/components/site/Faq';
 import { siteMetadata } from '@/lib/siteMetadata';
 
-export const metadata = siteMetadata('Pakistan VPS hosting', 'Pakistan-hosted NVMe VPS plans from PKR 999 per month. Explore cloud compute, dedicated configurations and local billing.', '/products/vps');
+export const metadata = siteMetadata(
+  'High-Performance Pakistan NVMe VPS Hosting',
+  'Ultra-fast Pakistan-hosted NVMe VPS servers starting at PKR 999/mo. Benefit from sub-10ms local latency, dedicated resources, and seamless PKR billing.',
+  '/products/vps'
+);
 
 export default function VpsPage() {
   const features = [

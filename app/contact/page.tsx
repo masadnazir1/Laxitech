@@ -5,7 +5,11 @@ import { ContactForm } from '@/components/site/ContactForm';
 import { Faq } from '@/components/site/Faq';
 import { siteMetadata } from '@/lib/siteMetadata';
 
-export const metadata = siteMetadata('Start a conversation', 'Talk to Laxitech about your software, cloud, infrastructure or automation project.', '/contact');
+export const metadata = siteMetadata(
+  'Contact Our Engineering Team to Start a Project',
+  'Reach out to Laxitech to discuss custom software engineering, cloud architecture, Pakistan VPS hosting, or enterprise workflow automation partnerships.',
+  '/contact'
+);
 
 export default async function ContactPage({ searchParams }: { searchParams: Promise<{ service?: string | string[] }> }) {
   const query = await searchParams;

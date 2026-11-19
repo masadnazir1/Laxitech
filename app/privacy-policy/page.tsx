@@ -1,7 +1,11 @@
 import { PolicyPage } from '@/components/site/PolicyPage';
 import { siteMetadata } from '@/lib/siteMetadata';
 
-export const metadata = siteMetadata('Privacy policy', 'Information about enquiries, browser storage and service-specific data handling at Laxitech.', '/privacy-policy');
+export const metadata = siteMetadata(
+  'Privacy Policy & Customer Data Protection',
+  'Learn how Laxitech collects, handles, and protects your personal and project information across our software platforms, cloud hosting, and web services.',
+  '/privacy-policy'
+);
 
 export default function PrivacyPolicyPage() {
   return <PolicyPage title="Privacy policy." introduction="How this website uses the information you choose to share, and where to ask about your project or service." sections={[

@@ -5,7 +5,11 @@ import { INSIGHTS } from '@/data/insights';
 import { PageIntro, PageClose, Reveal } from '@/components/site/Primitives';
 import { siteMetadata } from '@/lib/siteMetadata';
 
-export const metadata = siteMetadata('Engineering insights', 'Practical guidance on infrastructure, cloud migration and business email from the Laxitech engineering practice.', '/insights');
+export const metadata = siteMetadata(
+  'Engineering Insights & Technology Guides',
+  'Practical engineering insights, architecture guides, and technical deep-dives on cloud migration, VPS infrastructure, and business email protocols.',
+  '/insights'
+);
 
 export default function InsightsPage() {
   const kinds: IllustrationKind[] = ['vps', 'cloud', 'mail'];

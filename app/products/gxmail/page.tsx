@@ -5,7 +5,11 @@ import { MailPreview, MailPricing } from '@/components/site/ProductPreviews';
 import { Faq } from '@/components/site/Faq';
 import { siteMetadata } from '@/lib/siteMetadata';
 
-export const metadata = siteMetadata('GXMail business email plans', 'Compare GXMail plans for custom-domain email, shared mailbox storage, SMTP credentials, secure access, webmail and central administration.', '/products/gxmail');
+export const metadata = siteMetadata(
+  'GXMail Secure Business Email Hosting Plans',
+  'Professional custom domain business email with dedicated storage, strict SPF/DKIM/DMARC deliverability, modern webmail, and centralized administration.',
+  '/products/gxmail'
+);
 
 export default function GxmailPage() {
   const features = [

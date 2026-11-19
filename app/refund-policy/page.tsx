@@ -1,7 +1,11 @@
 import { PolicyPage } from '@/components/site/PolicyPage';
 import { siteMetadata } from '@/lib/siteMetadata';
 
-export const metadata = siteMetadata('Refunds and cancellations', 'How to discuss a billing issue, cancellation or refund request for a Laxitech service.', '/refund-policy');
+export const metadata = siteMetadata(
+  'Refund, Billing & Service Cancellation Policy',
+  'Clear guidelines and transparent policies on subscription billing, refund eligibility, payment handling, and service cancellations for Laxitech products.',
+  '/refund-policy'
+);
 
 export default function RefundPolicyPage() {
   return <PolicyPage title="Refunds & cancellations." introduction="For a billing question or a change of plans, start with the details of your order." sections={[

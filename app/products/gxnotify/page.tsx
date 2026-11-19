@@ -6,8 +6,8 @@ import { PageClose, PageIntro, Reveal, SectionHeading, SiteButton } from '@/comp
 import { siteMetadata } from '@/lib/siteMetadata';
 
 export const metadata = siteMetadata(
-  'GXNotify notification API',
-  'Send email, SMS and FCM push through one GXNotify API, with templates, subscribers, retries, delivery history and clear monthly PKR plans.',
+  'GXNotify Multi-Channel Notification API Suite',
+  'Unified developer API for automated Email, SMS, and FCM Push notifications with rich templating, delivery analytics, retries, and transparent pricing.',
   '/products/gxnotify',
 );
 

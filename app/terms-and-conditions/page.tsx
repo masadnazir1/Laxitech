@@ -1,7 +1,11 @@
 import { PolicyPage } from '@/components/site/PolicyPage';
 import { siteMetadata } from '@/lib/siteMetadata';
 
-export const metadata = siteMetadata('Terms and conditions', 'General information about Laxitech project scope, ordering, ownership and support arrangements.', '/terms-and-conditions');
+export const metadata = siteMetadata(
+  'Terms & Conditions of Engineering Services',
+  'Review the terms and conditions governing engineering engagements, software deliverables, hosting agreements, and technical support provided by Laxitech.',
+  '/terms-and-conditions'
+);
 
 export default function TermsAndConditionsPage() {
   return <PolicyPage title="Terms & conditions." introduction="A clear scope and a shared agreement are the foundation of a good engagement." sections={[

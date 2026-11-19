@@ -10,10 +10,43 @@ export function generateStaticParams() {
   return [...ENGINEERING_SERVICES.map(({ slug }) => ({ slug })), ...Object.keys(SERVICE_ALIASES).map((slug) => ({ slug }))];
 }
 
+const SERVICE_SEO: Record<string, { title: string; description: string }> = {
+  'software-engineering': {
+    title: 'Custom Software Engineering & Web Development',
+    description: 'High-performance web applications, mobile platforms, and desktop systems engineered around your exact operational workflows and business objectives.',
+  },
+  'cloud-architecture': {
+    title: 'Cloud Architecture & Zero-Downtime Migration',
+    description: 'Strategic cloud design, workload assessment, and resilient multi-cloud migrations across AWS, Azure, and Google Cloud with verified disaster recovery.',
+  },
+  'infrastructure': {
+    title: 'IT Infrastructure Design & Systems Operations',
+    description: 'Dependable enterprise IT infrastructure, virtualization, network design, and server administration built to maintain continuity across your operations.',
+  },
+  'devops-automation': {
+    title: 'DevOps CI/CD Automation & Delivery Pipelines',
+    description: 'Streamline software delivery with automated CI/CD pipelines, repeatable infrastructure as code, container orchestration, and continuous testing checks.',
+  },
+  'ai-automation': {
+    title: 'AI & Intelligent Workflow Automation Systems',
+    description: 'Transform manual operational overhead into automated intelligent workflows, custom AI integrations, and reliable data pipelines built for efficiency.',
+  },
+  'security-engineering': {
+    title: 'Security Engineering & Application Hardening',
+    description: 'Protect business-critical data with defense-in-depth security engineering, rigorous access control architectures, vulnerability auditing, and encryption.',
+  },
+};
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const service = ENGINEERING_SERVICES.find((item) => item.slug === slug);
-  return service ? siteMetadata(service.name, service.summary, `/services/${slug}`) : { title: 'Engineering services' };
+  const seo = SERVICE_SEO[slug];
+  if (!service) return { title: 'Engineering services' };
+  return siteMetadata(
+    seo?.title || service.name,
+    seo?.description || service.summary,
+    `/services/${slug}`
+  );
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
