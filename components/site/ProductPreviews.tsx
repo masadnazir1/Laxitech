@@ -83,7 +83,52 @@ export function ProductShowcase() {
         preview: <NotifyPreview />,
       };
 
-  return <section className="site-section site-product-section" data-atmosphere="silk"><div className="site-container"><SectionHeading title={<>Our engineering.<br />Your everyday tools.</>} description="Purpose-built products, backed by the team that builds your systems." /><SelectionControl className="site-product-choice" label="Explore Laxitech products" value={active} onChange={setActive} options={[{ value: 'cloud', label: 'Cloud VPS' }, { value: 'mail', label: 'GXMail' }, { value: 'notify', label: 'GXNotify' }]} /><div className="site-product-feature"><Reveal className="site-product-copy"><TransitionPanel activeKey={active}><div><h3>{product.title}</h3><p>{product.copy}</p><span className="site-product-price">From <strong>PKR {formatPrice(product.price)}</strong> / month</span><SiteButton href={product.href}>{product.action}</SiteButton></div></TransitionPanel></Reveal><Reveal className="site-product-interface" delay={0.08}><TransitionPanel activeKey={active}>{product.preview}</TransitionPanel></Reveal></div></div></section>;
+  return (
+    <section className="site-section site-product-section" data-atmosphere="silk">
+      <div className="site-container">
+        <SectionHeading
+          title={<>Our engineering.<br />Your everyday tools.</>}
+          description="Purpose-built products, backed by the team that builds your systems."
+          action="View all products"
+          href="/products"
+        />
+        <SelectionControl
+          className="site-product-choice"
+          label="Explore Laxitech products"
+          value={active}
+          onChange={setActive}
+          options={[{ value: 'cloud', label: 'Cloud VPS' }, { value: 'mail', label: 'GXMail' }, { value: 'notify', label: 'GXNotify' }]}
+        />
+        <div className="site-product-feature">
+          <Reveal className="site-product-copy">
+            <TransitionPanel activeKey={active}>
+              <div>
+                <h3>{product.title}</h3>
+                <p>{product.copy}</p>
+                <span className="site-product-price">From <strong>PKR {formatPrice(product.price)}</strong> / month</span>
+                <SiteButton href={product.href}>{product.action}</SiteButton>
+              </div>
+            </TransitionPanel>
+          </Reveal>
+          <Reveal className="site-product-interface" delay={0.08}>
+            <TransitionPanel activeKey={active}>{product.preview}</TransitionPanel>
+          </Reveal>
+        </div>
+        <div className="site-products-directory-links mt-8 pt-6 border-t border-line-strong flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-fg-muted">
+          <span>Explore products:</span>
+          <Link href="/products/vps" className="font-medium hover:text-fg transition-colors">
+            Pakistan VPS Hosting
+          </Link>
+          <Link href="/products/gxmail" className="font-medium hover:text-fg transition-colors">
+            GXMail Business Email
+          </Link>
+          <Link href="/products/gxnotify" className="font-medium hover:text-fg transition-colors">
+            GXNotify Notification API
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export function VpsPricing() {

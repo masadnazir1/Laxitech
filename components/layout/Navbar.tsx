@@ -10,11 +10,12 @@ import { SplitRollText } from '@/components/ui/SplitRollText';
 
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
   { label: 'Solutions', href: '/solutions' },
   { label: 'Products', href: '/products' },
-  { label: 'About', href: '/about' },
   { label: 'Insights', href: '/insights' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export function Navbar() {

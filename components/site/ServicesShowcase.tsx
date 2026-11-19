@@ -13,8 +13,8 @@ import { EngineeringIllustration } from '@/components/illustrations/EngineeringI
 export function ServicesShowcase() {
   const [active, setActive] = useState(0);
   const reduced = useReducedMotion();
-  const services = ENGINEERING_SERVICES.slice(0, 4);
-  const selected = services[active];
+  const services = ENGINEERING_SERVICES;
+  const selected = services[active] || services[0];
   return (
     <section id="services" className="site-section site-container" data-atmosphere="beams">
       <SectionHeading title={<>One team.<br />Every layer.</>} description="From the interface people use to the infrastructure behind it." action="All engineering services" href="/services" />
@@ -27,7 +27,18 @@ export function ServicesShowcase() {
         </div>
         <Reveal className="site-services-art" delay={0.1}><TransitionPanel activeKey={selected.slug}><ServiceDiagram key={selected.slug} kind={selected.kind} label={selected.name} nodes={selected.nodes} /></TransitionPanel></Reveal>
       </div>
-      <p className="site-services-note">Looking for AI automation or specialist security engineering? <Link href="/services">Explore the full practice.</Link></p>
+      <div className="site-services-directory-links mt-8 pt-6 border-t border-line-strong">
+        <p className="site-services-note mb-3">Explore all engineering disciplines: <Link href="/services" className="font-medium underline underline-offset-4 hover:text-accent">View all services</Link></p>
+        <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-fg-muted list-none p-0 m-0">
+          {ENGINEERING_SERVICES.map((s) => (
+            <li key={s.slug}>
+              <Link href={`/services/${s.slug}`} className="hover:text-fg transition-colors">
+                {s.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }
