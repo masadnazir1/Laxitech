@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { HeroHeader } from '@/components/sections/hero/HeroHeader';
@@ -10,16 +11,56 @@ import { Faq } from '@/components/site/Faq';
 import { Reveal, SectionHeading } from '@/components/site/Primitives';
 import { EngineeringIllustration, type IllustrationKind } from '@/components/illustrations/EngineeringIllustration';
 import { INSIGHTS } from '@/data/insights';
-import { siteMetadata } from '@/lib/siteMetadata';
+import { SITE, SITE_URL } from '@/data/laxitechSite';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getOrganizationSchema, getWebSiteSchema } from '@/lib/schema';
 
-export const metadata = siteMetadata(
-  'Laxitech | Software, cloud & engineering',
-  'Custom software, intelligent automation and dependable infrastructure. Laxitech is your engineering partner from idea to operation and beyond.',
-  '/',
-  { absoluteTitle: true }
-);
+const HOME_TITLE = 'Laxitech | Software, cloud & engineering';
+const HOME_DESCRIPTION =
+  'Custom software, intelligent automation and dependable infrastructure. Laxitech is your engineering partner from idea to operation and beyond.';
+
+export const metadata: Metadata = {
+  title: {
+    absolute: HOME_TITLE,
+  },
+  description: HOME_DESCRIPTION,
+  alternates: {
+    canonical: SITE_URL,
+  },
+  openGraph: {
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE.name,
+    type: 'website',
+    locale: 'en_US',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Laxitech — Software, cloud & engineering',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    images: ['/opengraph-image'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
 
 export default function HomePage() {
   const kinds: IllustrationKind[] = ['vps', 'cloud', 'mail'];

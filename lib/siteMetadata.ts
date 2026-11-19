@@ -14,16 +14,30 @@ export function siteMetadata(
   options?: SiteMetadataOptions
 ): Metadata {
   const canonicalUrl = `${SITE_URL}${path === '/' ? '' : path}`;
-  const fullTitle = title.endsWith('Laxitech') ? title : `${title} | Laxitech`;
+  const isHome = path === '/';
+  const hasBrand = title.includes('Laxitech');
+
+  // Prevent double-brand in fullTitle and OG/Twitter titles
+  const fullTitle = (options?.absoluteTitle || hasBrand)
+    ? title
+    : `${title} | Laxitech`;
+
+  const imageAlt = (isHome || hasBrand)
+    ? (title.includes('—') ? title : title.replace(' | ', ' — '))
+    : `${title} — Laxitech`;
+
+  const resolvedTitle = (options?.absoluteTitle || isHome)
+    ? { absolute: title }
+    : title;
 
   return {
-    title: options?.absoluteTitle ? { absolute: title } : title,
+    title: resolvedTitle,
     description,
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: fullTitle,
+      title: options?.absoluteTitle || isHome ? title : fullTitle,
       description,
       url: canonicalUrl,
       siteName: SITE.name,
@@ -34,13 +48,13 @@ export function siteMetadata(
           url: '/opengraph-image',
           width: 1200,
           height: 630,
-          alt: `${title} — Laxitech`,
+          alt: imageAlt,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: fullTitle,
+      title: options?.absoluteTitle || isHome ? title : fullTitle,
       description,
       images: ['/opengraph-image'],
     },
