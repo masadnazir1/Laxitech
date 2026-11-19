@@ -17,8 +17,8 @@ export function LaxitechWordmark({ className = '', symbolOnly = false, monument 
   return (
     <Image
       src={logoSrc}
-      width={150}
-      height={100}
+      width={symbolOnly ? 44 : 150}
+      height={symbolOnly ? 44 : 100}
       alt="Laxitech"
       loading="eager"
       className={`object-contain ${className}`}
