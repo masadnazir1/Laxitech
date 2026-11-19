@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { TransitionPanel } from '@/components/motion/TransitionPanel';
 import { Reveal, SiteButton } from '@/components/site/Primitives';
 import { SelectionControl } from '@/components/site/SelectionControl';
@@ -19,7 +20,7 @@ export function ImpactScrollStage() {
   return <section id="impact-showcase" className="site-capability-section" data-atmosphere="threads" aria-labelledby="capability-title">
     <KexsioThreads />
     <div className="site-container site-capability-content">
-      <Reveal><h2 id="capability-title">From idea.<br />To everyday.</h2><p className="site-capability-intro">A connected engineering practice, through every chapter of your business.</p></Reveal>
+      <Reveal><h2 id="capability-title">From idea.<br />To everyday.</h2><p className="site-capability-intro">A connected engineering practice, through every chapter of your business. Discover our <Link href="/solutions" className="underline underline-offset-4 font-medium hover:text-accent">tailored engineering solutions</Link>.</p></Reveal>
       <SelectionControl label="Explore our engineering approach" value={active} onChange={setActive} options={CHAPTERS.map((item) => ({ value: item.id, label: item.label }))} />
       <div className="site-capability-chapter" aria-live="polite"><TransitionPanel activeKey={active}><h3>{chapter.title}</h3><p>{chapter.description}</p><SiteButton href={chapter.href} secondary>{chapter.action}</SiteButton></TransitionPanel></div>
     </div>
