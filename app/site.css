@@ -27,6 +27,13 @@
 .site-section { padding-block: 112px; }
 .site-home { overflow: clip; }
 .site-page-intro { display: grid; grid-template-columns: minmax(0, 1fr) 370px; gap: 70px; align-items: start; padding-top: 156px; padding-bottom: 84px; }
+.site-breadcrumbs { grid-column: 1 / -1; margin-bottom: 24px; font-size: 14px; }
+.site-breadcrumbs-list { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; list-style: none; padding: 0; margin: 0; color: var(--lx-muted); }
+.site-breadcrumb-item { display: inline-flex; align-items: center; gap: 8px; }
+.site-breadcrumb-link { color: var(--lx-muted); text-decoration: none; transition: color 180ms ease; }
+.site-breadcrumb-link:hover { color: var(--lx-ink); }
+.site-breadcrumb-separator { color: var(--lx-line-strong); user-select: none; font-size: 12px; }
+.site-breadcrumb-current { color: var(--lx-ink); font-weight: 500; }
 .site-page-title { margin: 0; font-family: var(--font-walsheim); font-size: clamp(56px, 6.55vw, 98px); line-height: 1.03; font-weight: 500; letter-spacing: -0.065em; }
 .site-page-description { margin-top: 74px; }
 .site-page-description > p { font-size: 18px; line-height: 1.65; color: var(--lx-muted); text-wrap: pretty; }

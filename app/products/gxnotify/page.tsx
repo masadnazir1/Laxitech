@@ -4,6 +4,8 @@ import { Faq } from '@/components/site/Faq';
 import { NotifyPreview, NotifyPricing } from '@/components/site/ProductPreviews';
 import { PageClose, PageIntro, Reveal, SectionHeading, SiteButton } from '@/components/site/Primitives';
 import { siteMetadata } from '@/lib/siteMetadata';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { getGxnotifyProductSchema } from '@/lib/schema';
 
 export const metadata = siteMetadata(
   'GXNotify Multi-Channel Notification API Suite',
@@ -12,6 +14,12 @@ export const metadata = siteMetadata(
 );
 
 export default function GxnotifyPage() {
+  const breadcrumbs = [
+    { name: 'Home', item: '/' },
+    { name: 'Products', item: '/products' },
+    { name: 'GXNotify Notification API', item: '/products/gxnotify' },
+  ];
+
   const features = [
     {
       Icon: BellRing,
@@ -41,5 +49,65 @@ export default function GxnotifyPage() {
     ['Send and inspect', 'Submit a notification request, then follow its delivery state and provider response.'],
   ];
 
-  return <><PageIntro lines={['Every notification.', 'One simple API.']} description="GXNotify gives your applications one workflow for email, SMS and FCM push, with your providers and a clear record of every delivery." action="Create account" href={SITE.notifySignUp} external><SiteButton href={SITE.notifySignIn} secondary external>Sign in</SiteButton><SiteButton href={SITE.notifyDashboard} secondary external>Open dashboard</SiteButton></PageIntro><section className="site-container site-product-hero-art"><NotifyPreview /><div className="site-product-facts"><span><strong>3 channels</strong>Email, SMS and FCM push</span><span><strong>1 API</strong>One notification workflow</span><span><strong>From PKR 500</strong>Monthly local billing</span></div></section><section className="site-section site-container"><SectionHeading title={<>Keep delivery logic.<br />Out of your application.</>} /><div className="site-feature-grid">{features.map(({ Icon, title, text }) => <Reveal key={title}><Icon /><h3>{title}</h3><p>{text}</p></Reveal>)}</div></section><NotifyPricing /><section className="site-section site-container"><SectionHeading title="From project to first notification." /><div className="site-mail-onboarding">{onboarding.map(([title, text]) => <Reveal key={title}><span className="site-onboarding-dot" /><h3>{title}</h3><p>{text}</p></Reveal>)}</div></section><Faq items={NOTIFY_FAQS} title="Build notifications on clearer foundations." /><PageClose service="GXNotify" title="Need help planning your notification flow?" /></>;
+  return (
+    <>
+      <JsonLd data={getGxnotifyProductSchema()} />
+      <PageIntro
+        breadcrumbs={breadcrumbs}
+        lines={['Every notification.', 'One simple API.']}
+        description="GXNotify gives your applications one workflow for email, SMS and FCM push, with your providers and a clear record of every delivery."
+        action="Create account"
+        href={SITE.notifySignUp}
+        external
+      >
+        <SiteButton href={SITE.notifySignIn} secondary external>
+          Sign in
+        </SiteButton>
+        <SiteButton href={SITE.notifyDashboard} secondary external>
+          Open dashboard
+        </SiteButton>
+      </PageIntro>
+      <section className="site-container site-product-hero-art">
+        <NotifyPreview />
+        <div className="site-product-facts">
+          <span>
+            <strong>3 channels</strong>Email, SMS and FCM push
+          </span>
+          <span>
+            <strong>1 API</strong>One notification workflow
+          </span>
+          <span>
+            <strong>From PKR 500</strong>Monthly local billing
+          </span>
+        </div>
+      </section>
+      <section className="site-section site-container">
+        <SectionHeading title={<>Keep delivery logic.<br />Out of your application.</>} />
+        <div className="site-feature-grid">
+          {features.map(({ Icon, title, text }) => (
+            <Reveal key={title}>
+              <Icon />
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+      <NotifyPricing />
+      <section className="site-section site-container">
+        <SectionHeading title="From project to first notification." />
+        <div className="site-mail-onboarding">
+          {onboarding.map(([title, text]) => (
+            <Reveal key={title}>
+              <span className="site-onboarding-dot" />
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+      <Faq items={NOTIFY_FAQS} title="Build notifications on clearer foundations." />
+      <PageClose service="GXNotify" title="Need help planning your notification flow?" />
+    </>
+  );
 }

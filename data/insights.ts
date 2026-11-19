@@ -6,12 +6,20 @@ export interface Insight {
   description: string;
   sections: { title: string; paragraphs: string[] }[];
   relatedService: string;
+  datePublished: string;
+  dateModified: string;
 }
 
 export const INSIGHTS: Insight[] = [
   {
-    slug: 'choosing-a-vps', title: 'Choosing a VPS for your workload', headline: ['Choose the', 'right VPS.'], category: 'Infrastructure',
-    description: 'A practical way to think about compute, memory and storage before you choose a server.', relatedService: 'infrastructure',
+    slug: 'choosing-a-vps',
+    title: 'Choosing a VPS for your workload',
+    headline: ['Choose the', 'right VPS.'],
+    category: 'Infrastructure',
+    description: 'A practical way to think about compute, memory and storage before you choose a server.',
+    relatedService: 'infrastructure',
+    datePublished: '2025-02-19T00:00:00+05:00',
+    dateModified: '2025-02-19T00:00:00+05:00',
     sections: [
       { title: 'Start with the application.', paragraphs: ['A server specification is only useful in the context of the work it needs to do. A small website, a database and a background processing service place different demands on the same resources.', 'List the processes you will run, the software they depend on and the traffic you expect. Include supporting services such as the database, cache and scheduled jobs. That gives you a starting point for a capacity conversation.'] },
       { title: 'Match the resource to the constraint.', paragraphs: ['CPU supports active computation. Memory gives applications and databases room to work. Storage capacity holds your files, while storage performance affects how quickly the system can read and write them. Bandwidth is another budget to consider for workloads that move a lot of data.', 'Watch these resources together. Adding CPU will not solve a memory shortage, and a larger disk will not fix an inefficient database query. Measure the application before deciding which resource needs attention.'] },
@@ -19,8 +27,14 @@ export const INSIGHTS: Insight[] = [
     ],
   },
   {
-    slug: 'planning-a-cloud-migration', title: 'A more considered cloud migration', headline: ['A considered', 'cloud migration.'], category: 'Cloud architecture',
-    description: 'The useful decisions to make before moving an application into a new environment.', relatedService: 'cloud-architecture',
+    slug: 'planning-a-cloud-migration',
+    title: 'A more considered cloud migration',
+    headline: ['A considered', 'cloud migration.'],
+    category: 'Cloud architecture',
+    description: 'The useful decisions to make before moving an application into a new environment.',
+    relatedService: 'cloud-architecture',
+    datePublished: '2025-02-28T00:00:00+05:00',
+    dateModified: '2025-02-28T00:00:00+05:00',
     sections: [
       { title: 'Map what the application depends on.', paragraphs: ['A migration rarely moves only one application. Databases, storage, DNS, scheduled tasks, third-party services and access policies are part of the same working system.', 'Document those dependencies and identify which components need to move together. Speak to the people who operate the application as well as the people who built it. Their day-to-day knowledge often reveals requirements that are missing from a diagram.'] },
       { title: 'Agree on recovery and validation.', paragraphs: ['Decide how much interruption the business can tolerate and what data recovery would look like. These decisions shape the migration method, the order of work and the resources needed for the transition.', 'Define the checks that tell you the move has succeeded. They should include real user journeys, integrations, data consistency and operational visibility. Write down a rollback path before the cutover, with clear responsibility for the decision.'] },
@@ -28,8 +42,14 @@ export const INSIGHTS: Insight[] = [
     ],
   },
   {
-    slug: 'business-email-authentication', title: 'Your business domain and trusted email', headline: ['Your domain.', 'Trusted email.'], category: 'Business email',
-    description: 'What SPF, DKIM and DMARC do, and why they belong in a business email setup.', relatedService: 'security-engineering',
+    slug: 'business-email-authentication',
+    title: 'Your business domain and trusted email',
+    headline: ['Your domain.', 'Trusted email.'],
+    category: 'Business email',
+    description: 'What SPF, DKIM and DMARC do, and why they belong in a business email setup.',
+    relatedService: 'security-engineering',
+    datePublished: '2025-02-08T00:00:00+05:00',
+    dateModified: '2025-02-08T00:00:00+05:00',
     sections: [
       { title: 'Your domain is part of your identity.', paragraphs: ['A business email address ties a conversation to your own domain. The setup also needs a way for receiving services to distinguish legitimate sending from a message that only claims to come from your organization.', 'Domain authentication is part of that foundation. It does not guarantee that every message reaches an inbox, but it gives receiving systems information they can use when evaluating your mail.'] },
       { title: 'Three records with different jobs.', paragraphs: ['SPF describes which sending systems are authorized for a domain. DKIM adds a cryptographic signature that can be checked using a public key published in DNS. DMARC builds on authentication and alignment to define a handling policy and reporting.', 'Configure these records for the services that actually send on behalf of your business. That may include your mail platform and, separately, transactional mail or approved business tools. Keep the inventory up to date as those services change.'] },

@@ -74,7 +74,6 @@ export default function RootLayout({
       </head>
       <body className="bg-bg text-fg font-sans antialiased">
         <a className="site-skip-link" href="#vv-main">Skip to content</a>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: SITE.name, url: SITE.url, email: SITE.email, logo: `${SITE.url}/brand/laxitech-icon.png` }) }} />
         <ThemeProvider>
           <MotionProvider>
           <LiveAtmosphereField />

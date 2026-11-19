@@ -4,6 +4,8 @@ import { PageIntro, PageClose, Reveal, SectionHeading, SiteButton } from '@/comp
 import { MailPreview, MailPricing } from '@/components/site/ProductPreviews';
 import { Faq } from '@/components/site/Faq';
 import { siteMetadata } from '@/lib/siteMetadata';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { getGxmailProductSchema } from '@/lib/schema';
 
 export const metadata = siteMetadata(
   'GXMail Secure Business Email Hosting Plans',
@@ -12,6 +14,12 @@ export const metadata = siteMetadata(
 );
 
 export default function GxmailPage() {
+  const breadcrumbs = [
+    { name: 'Home', item: '/' },
+    { name: 'Products', item: '/products' },
+    { name: 'GXMail Business Email', item: '/products/gxmail' },
+  ];
+
   const features = [
     { Icon: AtSign, title: 'Use your own domains.', text: 'Add 1, 3 or 5 business domains, depending on the plan you choose.' },
     { Icon: Inbox, title: 'Size mailboxes to your team.', text: 'Set up plan-based mailbox capacity and allocate storage from one shared pool.' },
@@ -25,5 +33,62 @@ export default function GxmailPage() {
     ['Add your mailboxes', 'Allocate storage, open webmail or connect a compatible mail application.'],
   ];
 
-  return <><PageIntro lines={['Your business.', 'Your email.']} description="Meet GXMail. Custom-domain email with three clear plans for your domains, mailboxes, shared storage and application sending." action="Get GXMail" href={SITE.mailSignup} external><SiteButton href={SITE.webmail} secondary external>Open webmail</SiteButton></PageIntro><section className="site-container site-product-hero-art"><MailPreview /><div className="site-product-facts"><span><strong>1–5 domains</strong>Plan-based capacity</span><span><strong>30–200 GB</strong>Shared mailbox storage</span><span><strong>5–20 SMTP</strong>Application credentials</span></div></section><section className="site-section site-container"><SectionHeading title={<>Your email.<br />Under your control.</>} /><div className="site-feature-grid">{features.map(({ Icon, title, text }) => <Reveal key={title}><Icon /><h3>{title}</h3><p>{text}</p></Reveal>)}</div></section><MailPricing /><section className="site-section site-container"><SectionHeading title="From your domain to your inbox." /><div className="site-mail-onboarding">{onboarding.map(([title, text]) => <Reveal key={title}><span className="site-onboarding-dot" /><h3>{title}</h3><p>{text}</p></Reveal>)}</div></section><Faq items={MAIL_FAQS} title="A clearer inbox starts here." /><PageClose service="GXMail" title="Your next conversation starts here." /></>;
+  return (
+    <>
+      <JsonLd data={getGxmailProductSchema()} />
+      <PageIntro
+        breadcrumbs={breadcrumbs}
+        lines={['Your business.', 'Your email.']}
+        description="Meet GXMail. Custom-domain email with three clear plans for your domains, mailboxes, shared storage and application sending."
+        action="Get GXMail"
+        href={SITE.mailSignup}
+        external
+      >
+        <SiteButton href={SITE.webmail} secondary external>
+          Open webmail
+        </SiteButton>
+      </PageIntro>
+      <section className="site-container site-product-hero-art">
+        <MailPreview />
+        <div className="site-product-facts">
+          <span>
+            <strong>1–5 domains</strong>Plan-based capacity
+          </span>
+          <span>
+            <strong>30–200 GB</strong>Shared mailbox storage
+          </span>
+          <span>
+            <strong>5–20 SMTP</strong>Application credentials
+          </span>
+        </div>
+      </section>
+      <section className="site-section site-container">
+        <SectionHeading title={<>Your email.<br />Under your control.</>} />
+        <div className="site-feature-grid">
+          {features.map(({ Icon, title, text }) => (
+            <Reveal key={title}>
+              <Icon />
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+      <MailPricing />
+      <section className="site-section site-container">
+        <SectionHeading title="From your domain to your inbox." />
+        <div className="site-mail-onboarding">
+          {onboarding.map(([title, text]) => (
+            <Reveal key={title}>
+              <span className="site-onboarding-dot" />
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+      <Faq items={MAIL_FAQS} title="A clearer inbox starts here." />
+      <PageClose service="GXMail" title="Your next conversation starts here." />
+    </>
+  );
 }

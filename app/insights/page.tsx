@@ -13,5 +13,38 @@ export const metadata = siteMetadata(
 
 export default function InsightsPage() {
   const kinds: IllustrationKind[] = ['vps', 'cloud', 'mail'];
-  return <><PageIntro lines={['Useful thinking.', 'Practical answers.']} description="A few things worth understanding before your next technical decision." /><section className="site-container site-insights-grid">{INSIGHTS.map((article, index) => <Reveal key={article.slug} delay={index * 0.07}><Link href={`/insights/${article.slug}`} className="site-insight-card"><div className="site-insight-art"><EngineeringIllustration kind={kinds[index]} compact caption={false} /><span>{article.category}</span></div><div className="site-insight-text"><h2>{article.title}</h2><p>{article.description}</p><span>Read the guide <ArrowUpRight /></span></div></Link></Reveal>)}</section><PageClose title="Have a question of your own?" /></>;
+  const breadcrumbs = [
+    { name: 'Home', item: '/' },
+    { name: 'Insights', item: '/insights' },
+  ];
+
+  return (
+    <>
+      <PageIntro
+        breadcrumbs={breadcrumbs}
+        lines={['Useful thinking.', 'Practical answers.']}
+        description="A few things worth understanding before your next technical decision."
+      />
+      <section className="site-container site-insights-grid">
+        {INSIGHTS.map((article, index) => (
+          <Reveal key={article.slug} delay={index * 0.07}>
+            <Link href={`/insights/${article.slug}`} className="site-insight-card">
+              <div className="site-insight-art">
+                <EngineeringIllustration kind={kinds[index]} compact caption={false} />
+                <span>{article.category}</span>
+              </div>
+              <div className="site-insight-text">
+                <h2>{article.title}</h2>
+                <p>{article.description}</p>
+                <span>
+                  Read the guide <ArrowUpRight />
+                </span>
+              </div>
+            </Link>
+          </Reveal>
+        ))}
+      </section>
+      <PageClose title="Have a question of your own?" />
+    </>
+  );
 }
