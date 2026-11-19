@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /design-preview
 Disallow: /contact/thank-you
+Disallow: /api/
 
 Sitemap: https://laxitech.com/sitemap.xml

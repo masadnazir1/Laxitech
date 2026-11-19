@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, stat, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -7,46 +7,68 @@ const { SITE, ENGINEERING_SERVICES } = await import('../data/laxitechSite.ts');
 const { INSIGHTS } = await import('../data/insights.ts');
 
 const baseUrl = SITE.url.replace(/\/$/, '');
-const lastModified = new Date().toISOString();
 
-const routes = [
-  { path: '/', changeFrequency: 'weekly', priority: '1.0' },
-  { path: '/about', changeFrequency: 'monthly', priority: '0.9' },
-  { path: '/solutions', changeFrequency: 'monthly', priority: '0.9' },
-  { path: '/services', changeFrequency: 'monthly', priority: '0.9' },
-  { path: '/insights', changeFrequency: 'monthly', priority: '0.85' },
-  { path: '/products', changeFrequency: 'monthly', priority: '0.85' },
-  { path: '/products/vps', changeFrequency: 'monthly', priority: '0.9' },
-  { path: '/products/gxmail', changeFrequency: 'monthly', priority: '0.9' },
-  { path: '/products/gxnotify', changeFrequency: 'monthly', priority: '0.9' },
-  { path: '/contact', changeFrequency: 'monthly', priority: '0.9' },
-  { path: '/privacy-policy', changeFrequency: 'yearly', priority: '0.4' },
-  { path: '/terms-and-conditions', changeFrequency: 'yearly', priority: '0.4' },
-  { path: '/refund-policy', changeFrequency: 'yearly', priority: '0.4' },
-  ...ENGINEERING_SERVICES.map((service) => ({
-    path: `/services/${service.slug}`,
-    changeFrequency: 'monthly',
-    priority: '0.85',
-  })),
-  ...INSIGHTS.map((insight) => ({
-    path: `/insights/${insight.slug}`,
-    changeFrequency: 'monthly',
-    priority: '0.75',
-  })),
+async function getPageLastMod(relPath) {
+  try {
+    const filePath = join(root, 'app', relPath === '/' ? 'page.tsx' : `${relPath.replace(/^\//, '')}/page.tsx`);
+    const fileStat = await stat(filePath);
+    return fileStat.mtime.toISOString();
+  } catch {
+    return null;
+  }
+}
+
+const staticPaths = [
+  '/',
+  '/about',
+  '/solutions',
+  '/services',
+  '/insights',
+  '/products',
+  '/products/vps',
+  '/products/gxmail',
+  '/products/gxnotify',
+  '/contact',
+  '/privacy-policy',
+  '/terms-and-conditions',
+  '/refund-policy',
 ];
+
+const routes = [];
+
+for (const path of staticPaths) {
+  const lastmod = await getPageLastMod(path);
+  routes.push({ path, lastmod });
+}
+
+for (const service of ENGINEERING_SERVICES) {
+  const path = `/services/${service.slug}`;
+  const lastmod = await getPageLastMod('/services/[slug]');
+  routes.push({ path, lastmod });
+}
+
+for (const insight of INSIGHTS) {
+  const path = `/insights/${insight.slug}`;
+  const lastmod = insight.dateModified || insight.datePublished || (await getPageLastMod('/insights/[slug]'));
+  routes.push({ path, lastmod });
+}
 
 const escapeXml = (value) =>
   value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
 
 const urls = routes
-  .map(({ path, changeFrequency, priority }) => [
-    '  <url>',
-    `    <loc>${escapeXml(`${baseUrl}${path === '/' ? '/' : path}`)}</loc>`,
-    `    <lastmod>${lastModified}</lastmod>`,
-    `    <changefreq>${changeFrequency}</changefreq>`,
-    `    <priority>${priority}</priority>`,
-    '  </url>',
-  ].join('\n'))
+  .map(({ path, lastmod }) => {
+    const loc = escapeXml(`${baseUrl}${path === '/' ? '' : path}`);
+    const lines = [
+      '  <url>',
+      `    <loc>${loc}</loc>`,
+    ];
+    if (lastmod) {
+      lines.push(`    <lastmod>${lastmod}</lastmod>`);
+    }
+    lines.push('  </url>');
+    return lines.join('\n');
+  })
   .join('\n');
 
 const xml = [
@@ -61,4 +83,4 @@ const outputPath = join(root, 'public', 'sitemap.xml');
 await mkdir(dirname(outputPath), { recursive: true });
 await writeFile(outputPath, xml, 'utf8');
 
-console.log(`Generated ${outputPath} with ${routes.length} URLs.`);
+console.log(`Generated ${outputPath} with ${routes.length} URLs (changefreq & priority removed).`);
