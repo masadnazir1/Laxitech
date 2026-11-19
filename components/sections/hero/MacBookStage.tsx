@@ -115,7 +115,7 @@ export function MacBookStage({ showTable = true }: { showTable?: boolean }) {
           <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcSet={`/hero/mobile-${showTable ? 'table' : 'solo'}-${resolvedTheme}.webp`} />
           <source media="(prefers-reduced-motion: reduce)" srcSet={`/hero/desktop-${showTable ? 'table' : 'solo'}-${resolvedTheme}.webp`} />
           <source media="(max-width: 600px)" srcSet={`/hero/mobile-${showTable ? 'table' : 'solo'}-${resolvedTheme}${failed ? '' : '-closed'}.webp`} />
-          <Image src={`/hero/desktop-${showTable ? 'table' : 'solo'}-${resolvedTheme}${failed ? '' : '-closed'}.webp`} width={1360} height={560} alt="" unoptimized loading="eager" fetchPriority="high" />
+          <Image src={`/hero/desktop-${showTable ? 'table' : 'solo'}-${resolvedTheme}${failed ? '' : '-closed'}.webp`} width={1360} height={560} alt="Laxitech engineering studio display with custom software and cloud infrastructure" unoptimized loading="eager" fetchPriority="high" />
         </picture>
         {!failed && <MacBookCanvas screenRef={screenRef} theme={resolvedTheme} showTable={showTable} replayKey={replayKey} onReady={handleReady} onSettled={handleSettled} onFailure={handleFailure} />}
         <div

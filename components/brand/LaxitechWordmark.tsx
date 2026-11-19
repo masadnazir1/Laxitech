@@ -19,7 +19,7 @@ export function LaxitechWordmark({ className = '', symbolOnly = false, monument 
       src={logoSrc}
       width={150}
       height={100}
-      alt={symbolOnly ? 'Laxitech' : ''}
+      alt="Laxitech"
       loading="eager"
       className={`object-contain ${className}`}
     />
